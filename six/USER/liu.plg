@@ -1,0 +1,871 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\chrisyang\Desktop\«∂»Î Ω\liu\USER\liu.uvproj
+Project File Date:  03/19/2017
+
+<h2>Output:</h2>
+Build target 'liu'
+compiling misc.c...
+..\FWLIB\src\misc.c(24): error:  #5: cannot open source input file "misc.h": No such file or directory
+..\FWLIB\src\misc.c:   #include "misc.h"
+..\FWLIB\src\misc.c:                    ^
+..\FWLIB\src\misc.c: ..\FWLIB\src\misc.c: 0 warnings, 1 error
+compiling stm32f10x_adc.c...
+..\FWLIB\src\stm32f10x_adc.c(220): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:     uint32_t tmpreg1 = 0;
+..\FWLIB\src\stm32f10x_adc.c:     ^
+..\FWLIB\src\stm32f10x_adc.c(221): error:  #20: identifier "uint8_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:     uint8_t tmpreg2 = 0;
+..\FWLIB\src\stm32f10x_adc.c:     ^
+..\FWLIB\src\stm32f10x_adc.c(235): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:     tmpreg1 &= CR1_CLEAR_Mask;
+..\FWLIB\src\stm32f10x_adc.c:                ^
+..\FWLIB\src\stm32f10x_adc.c(235): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:     tmpreg1 &= CR1_CLEAR_Mask;
+..\FWLIB\src\stm32f10x_adc.c:                ^
+..\FWLIB\src\stm32f10x_adc.c(239): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:     tmpreg1 |= (uint32_t)(ADC_InitStruct->ADC_Mode | ((uint32_t)ADC_InitStruct->ADC_ScanConvMode << 8));
+..\FWLIB\src\stm32f10x_adc.c:                                                                 ^
+..\FWLIB\src\stm32f10x_adc.c(247): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:     tmpreg1 &= CR2_CLEAR_Mask;
+..\FWLIB\src\stm32f10x_adc.c:                ^
+..\FWLIB\src\stm32f10x_adc.c(253): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:               ((uint32_t)ADC_InitStruct->ADC_ContinuousConvMode << 1));
+..\FWLIB\src\stm32f10x_adc.c:                          ^
+..\FWLIB\src\stm32f10x_adc.c(261): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:     tmpreg1 &= SQR1_CLEAR_Mask;
+..\FWLIB\src\stm32f10x_adc.c:                ^
+..\FWLIB\src\stm32f10x_adc.c(264): error:  #20: identifier "uint8_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:     tmpreg2 |= (uint8_t) (ADC_InitStruct->ADC_NbrOfChannel - (uint8_t)1);
+..\FWLIB\src\stm32f10x_adc.c:                 ^
+..\FWLIB\src\stm32f10x_adc.c(264): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:     tmpreg2 |= (uint8_t) (ADC_InitStruct->ADC_NbrOfChannel - (uint8_t)1);
+..\FWLIB\src\stm32f10x_adc.c:                                                                       ^
+..\FWLIB\src\stm32f10x_adc.c(265): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_adc.c:     tmpreg1 |= (uint32_t)tmpreg2 << 20;
+..\FWLIB\src\stm32f10x_adc.c:                          ^
+..\FWLIB\src\stm32f10x_adc.c(307): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:       ADCx->CR2 |= CR2_ADON_Set;
+..\FWLIB\src\stm32f10x_adc.c:                    ^
+..\FWLIB\src\stm32f10x_adc.c(307): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:       ADCx->CR2 |= CR2_ADON_Set;
+..\FWLIB\src\stm32f10x_adc.c:                    ^
+..\FWLIB\src\stm32f10x_adc.c(312): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:       ADCx->CR2 &= CR2_ADON_Reset;
+..\FWLIB\src\stm32f10x_adc.c:                    ^
+..\FWLIB\src\stm32f10x_adc.c(312): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:       ADCx->CR2 &= CR2_ADON_Reset;
+..\FWLIB\src\stm32f10x_adc.c:                    ^
+..\FWLIB\src\stm32f10x_adc.c(332): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:       ADCx->CR2 |= CR2_DMA_Set;
+..\FWLIB\src\stm32f10x_adc.c:                    ^
+..\FWLIB\src\stm32f10x_adc.c(332): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:       ADCx->CR2 |= CR2_DMA_Set;
+..\FWLIB\src\stm32f10x_adc.c:                    ^
+..\FWLIB\src\stm32f10x_adc.c(337): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:       ADCx->CR2 &= CR2_DMA_Reset;
+..\FWLIB\src\stm32f10x_adc.c:                    ^
+..\FWLIB\src\stm32f10x_adc.c(337): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:       ADCx->CR2 &= CR2_DMA_Reset;
+..\FWLIB\src\stm32f10x_adc.c:                    ^
+..\FWLIB\src\stm32f10x_adc.c(353): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:   void ADC_ITConfig(ADC_TypeDef* ADCx, uint16_t ADC_IT, FunctionalState NewState)
+..\FWLIB\src\stm32f10x_adc.c:                                        ^
+..\FWLIB\src\stm32f10x_adc.c(355): error:  #20: identifier "uint8_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:     uint8_t itmask = 0;
+..\FWLIB\src\stm32f10x_adc.c:     ^
+..\FWLIB\src\stm32f10x_adc.c(361): error:  #20: identifier "uint8_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:     itmask = (uint8_t)ADC_IT;
+..\FWLIB\src\stm32f10x_adc.c:               ^
+..\FWLIB\src\stm32f10x_adc.c(361): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_adc.c:     itmask = (uint8_t)ADC_IT;
+..\FWLIB\src\stm32f10x_adc.c:                       ^
+..\FWLIB\src\stm32f10x_adc.c(370): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:       ADCx->CR1 &= (~(uint32_t)itmask);
+..\FWLIB\src\stm32f10x_adc.c:                       ^
+..\FWLIB\src\stm32f10x_adc.c(370): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:       ADCx->CR1 &= (~(uint32_t)itmask);
+..\FWLIB\src\stm32f10x_adc.c:                                ^
+..\FWLIB\src\stm32f10x_adc.c(384): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:     ADCx->CR2 |= CR2_RSTCAL_Set;
+..\FWLIB\src\stm32f10x_adc.c:                  ^
+..\FWLIB\src\stm32f10x_adc.c(384): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:     ADCx->CR2 |= CR2_RSTCAL_Set;
+..\FWLIB\src\stm32f10x_adc.c:                  ^
+..\FWLIB\src\stm32f10x_adc.c(398): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_adc.c:     if ((ADCx->CR2 & CR2_RSTCAL_Set) != (uint32_t)RESET)
+..\FWLIB\src\stm32f10x_adc.c:                      ^
+..\FWLIB\src\stm32f10x_adc.c(398): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:     if ((ADCx->CR2 & CR2_RSTCAL_Set) != (uint32_t)RESET)
+..\FWLIB\src\stm32f10x_adc.c:                      ^
+..\FWLIB\src\stm32f10x_adc.c(398): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_adc.c:     if ((ADCx->CR2 & CR2_RSTCAL_Set) != (uint32_t)RESET)
+..\FWLIB\src\stm32f10x_adc.c:                                                   ^
+..\FWLIB\src\stm32f10x_adc.c: ..\FWLIB\src\stm32f10x_adc.c: 0 warnings, 30 errors
+compiling stm32f10x_bkp.c...
+..\FWLIB\src\stm32f10x_bkp.c(134): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:   void BKP_TamperPinLevelConfig(uint16_t BKP_TamperPinLevel)
+..\FWLIB\src\stm32f10x_bkp.c:                                 ^
+..\FWLIB\src\stm32f10x_bkp.c(138): error:  #20: identifier "__IO" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:     *(__IO uint32_t *) CR_TPAL_BB = BKP_TamperPinLevel;
+..\FWLIB\src\stm32f10x_bkp.c:       ^
+..\FWLIB\src\stm32f10x_bkp.c(138): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_bkp.c:     *(__IO uint32_t *) CR_TPAL_BB = BKP_TamperPinLevel;
+..\FWLIB\src\stm32f10x_bkp.c:            ^
+..\FWLIB\src\stm32f10x_bkp.c(151): error:  #20: identifier "__IO" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:     *(__IO uint32_t *) CR_TPE_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_bkp.c:       ^
+..\FWLIB\src\stm32f10x_bkp.c(151): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_bkp.c:     *(__IO uint32_t *) CR_TPE_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_bkp.c:            ^
+..\FWLIB\src\stm32f10x_bkp.c(151): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:     *(__IO uint32_t *) CR_TPE_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_bkp.c:                                     ^
+..\FWLIB\src\stm32f10x_bkp.c(151): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_bkp.c:     *(__IO uint32_t *) CR_TPE_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_bkp.c:                                              ^
+..\FWLIB\src\stm32f10x_bkp.c(164): error:  #20: identifier "__IO" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:     *(__IO uint32_t *) CSR_TPIE_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_bkp.c:       ^
+..\FWLIB\src\stm32f10x_bkp.c(164): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_bkp.c:     *(__IO uint32_t *) CSR_TPIE_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_bkp.c:            ^
+..\FWLIB\src\stm32f10x_bkp.c(164): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:     *(__IO uint32_t *) CSR_TPIE_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_bkp.c:                                       ^
+..\FWLIB\src\stm32f10x_bkp.c(164): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_bkp.c:     *(__IO uint32_t *) CSR_TPIE_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_bkp.c:                                                ^
+..\FWLIB\src\stm32f10x_bkp.c(180): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:   void BKP_RTCOutputConfig(uint16_t BKP_RTCOutputSource)
+..\FWLIB\src\stm32f10x_bkp.c:                            ^
+..\FWLIB\src\stm32f10x_bkp.c(182): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:     uint16_t tmpreg = 0;
+..\FWLIB\src\stm32f10x_bkp.c:     ^
+..\FWLIB\src\stm32f10x_bkp.c(187): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:     tmpreg &= RTCCR_MASK;
+..\FWLIB\src\stm32f10x_bkp.c:               ^
+..\FWLIB\src\stm32f10x_bkp.c(187): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_bkp.c:     tmpreg &= RTCCR_MASK;
+..\FWLIB\src\stm32f10x_bkp.c:               ^
+..\FWLIB\src\stm32f10x_bkp.c(201): error:  #20: identifier "uint8_t" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:   void BKP_SetRTCCalibrationValue(uint8_t CalibrationValue)
+..\FWLIB\src\stm32f10x_bkp.c:                                   ^
+..\FWLIB\src\stm32f10x_bkp.c(203): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:     uint16_t tmpreg = 0;
+..\FWLIB\src\stm32f10x_bkp.c:     ^
+..\FWLIB\src\stm32f10x_bkp.c(208): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:     tmpreg &= RTCCR_CAL_MASK;
+..\FWLIB\src\stm32f10x_bkp.c:               ^
+..\FWLIB\src\stm32f10x_bkp.c(208): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_bkp.c:     tmpreg &= RTCCR_CAL_MASK;
+..\FWLIB\src\stm32f10x_bkp.c:               ^
+..\FWLIB\src\stm32f10x_bkp.c(222): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:   void BKP_WriteBackupRegister(uint16_t BKP_DR, uint16_t Data)
+..\FWLIB\src\stm32f10x_bkp.c:                                ^
+..\FWLIB\src\stm32f10x_bkp.c(222): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:   void BKP_WriteBackupRegister(uint16_t BKP_DR, uint16_t Data)
+..\FWLIB\src\stm32f10x_bkp.c:                                                 ^
+..\FWLIB\src\stm32f10x_bkp.c(224): error:  #20: identifier "__IO" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:     __IO uint32_t tmp = 0;
+..\FWLIB\src\stm32f10x_bkp.c:     ^
+..\FWLIB\src\stm32f10x_bkp.c(224): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_bkp.c:     __IO uint32_t tmp = 0;
+..\FWLIB\src\stm32f10x_bkp.c:                   ^
+..\FWLIB\src\stm32f10x_bkp.c(229): error:  #20: identifier "tmp" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:     tmp = (uint32_t)BKP_BASE; 
+..\FWLIB\src\stm32f10x_bkp.c:     ^
+..\FWLIB\src\stm32f10x_bkp.c(232): error:  #20: identifier "__IO" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:     *(__IO uint32_t *) tmp = Data;
+..\FWLIB\src\stm32f10x_bkp.c:       ^
+..\FWLIB\src\stm32f10x_bkp.c(232): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_bkp.c:     *(__IO uint32_t *) tmp = Data;
+..\FWLIB\src\stm32f10x_bkp.c:            ^
+..\FWLIB\src\stm32f10x_bkp.c(232): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_bkp.c:     *(__IO uint32_t *) tmp = Data;
+..\FWLIB\src\stm32f10x_bkp.c:                        ^
+..\FWLIB\src\stm32f10x_bkp.c(241): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:   uint16_t BKP_ReadBackupRegister(uint16_t BKP_DR)
+..\FWLIB\src\stm32f10x_bkp.c:   ^
+..\FWLIB\src\stm32f10x_bkp.c(241): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:   uint16_t BKP_ReadBackupRegister(uint16_t BKP_DR)
+..\FWLIB\src\stm32f10x_bkp.c:                                   ^
+..\FWLIB\src\stm32f10x_bkp.c(243): error:  #20: identifier "__IO" is undefined
+..\FWLIB\src\stm32f10x_bkp.c:     __IO uint32_t tmp = 0;
+..\FWLIB\src\stm32f10x_bkp.c:     ^
+..\FWLIB\src\stm32f10x_bkp.c: ..\FWLIB\src\stm32f10x_bkp.c: 0 warnings, 30 errors
+compiling stm32f10x_rcc.c...
+..\FWLIB\src\stm32f10x_rcc.c(193): error:  #20: identifier "__I" is undefined
+..\FWLIB\src\stm32f10x_rcc.c:   static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6, 7, 8, 9};
+..\FWLIB\src\stm32f10x_rcc.c:          ^
+..\FWLIB\src\stm32f10x_rcc.c(193): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_rcc.c:   static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6, 7, 8, 9};
+..\FWLIB\src\stm32f10x_rcc.c:                      ^
+..\FWLIB\src\stm32f10x_rcc.c(194): error:  #20: identifier "__I" is undefined
+..\FWLIB\src\stm32f10x_rcc.c:   static __I uint8_t ADCPrescTable[4] = {2, 4, 6, 8};
+..\FWLIB\src\stm32f10x_rcc.c:          ^
+..\FWLIB\src\stm32f10x_rcc.c(194): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_rcc.c:   static __I uint8_t ADCPrescTable[4] = {2, 4, 6, 8};
+..\FWLIB\src\stm32f10x_rcc.c:                      ^
+..\FWLIB\src\stm32f10x_rcc.c(220): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rcc.c:     RCC->CR |= (uint32_t)0x00000001;
+..\FWLIB\src\stm32f10x_rcc.c:                 ^
+..\FWLIB\src\stm32f10x_rcc.c(220): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_rcc.c:     RCC->CR |= (uint32_t)0x00000001;
+..\FWLIB\src\stm32f10x_rcc.c:                          ^
+..\FWLIB\src\stm32f10x_rcc.c(224): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_rcc.c:     RCC->CFGR &= (uint32_t)0xF8FF0000;
+..\FWLIB\src\stm32f10x_rcc.c:                            ^
+..\FWLIB\src\stm32f10x_rcc.c(230): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_rcc.c:     RCC->CR &= (uint32_t)0xFEF6FFFF;
+..\FWLIB\src\stm32f10x_rcc.c:                          ^
+..\FWLIB\src\stm32f10x_rcc.c(233): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_rcc.c:     RCC->CR &= (uint32_t)0xFFFBFFFF;
+..\FWLIB\src\stm32f10x_rcc.c:                          ^
+..\FWLIB\src\stm32f10x_rcc.c(236): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_rcc.c:     RCC->CFGR &= (uint32_t)0xFF80FFFF;
+..\FWLIB\src\stm32f10x_rcc.c:                            ^
+..\FWLIB\src\stm32f10x_rcc.c(270): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rcc.c:   void RCC_HSEConfig(uint32_t RCC_HSE)
+..\FWLIB\src\stm32f10x_rcc.c:                      ^
+..\FWLIB\src\stm32f10x_rcc.c(276): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rcc.c:     RCC->CR &= CR_HSEON_Reset;
+..\FWLIB\src\stm32f10x_rcc.c:                ^
+..\FWLIB\src\stm32f10x_rcc.c(276): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rcc.c:     RCC->CR &= CR_HSEON_Reset;
+..\FWLIB\src\stm32f10x_rcc.c:                ^
+..\FWLIB\src\stm32f10x_rcc.c(278): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rcc.c:     RCC->CR &= CR_HSEBYP_Reset;
+..\FWLIB\src\stm32f10x_rcc.c:                ^
+..\FWLIB\src\stm32f10x_rcc.c(284): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rcc.c:         RCC->CR |= CR_HSEON_Set;
+..\FWLIB\src\stm32f10x_rcc.c:                    ^
+..\FWLIB\src\stm32f10x_rcc.c(289): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rcc.c:         RCC->CR |= CR_HSEBYP_Set | CR_HSEON_Set;
+..\FWLIB\src\stm32f10x_rcc.c:                    ^
+..\FWLIB\src\stm32f10x_rcc.c(289): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rcc.c:         RCC->CR |= CR_HSEBYP_Set | CR_HSEON_Set;
+..\FWLIB\src\stm32f10x_rcc.c:                                    ^
+..\FWLIB\src\stm32f10x_rcc.c(306): error:  #20: identifier "__IO" is undefined
+..\FWLIB\src\stm32f10x_rcc.c:     __IO uint32_t StartUpCounter = 0;
+..\FWLIB\src\stm32f10x_rcc.c:     ^
+..\FWLIB\src\stm32f10x_rcc.c(306): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_rcc.c:     __IO uint32_t StartUpCounter = 0;
+..\FWLIB\src\stm32f10x_rcc.c:                   ^
+..\FWLIB\src\stm32f10x_rcc.c(314): error:  #20: identifier "StartUpCounter" is undefined
+..\FWLIB\src\stm32f10x_rcc.c:       StartUpCounter++;  
+..\FWLIB\src\stm32f10x_rcc.c:       ^
+..\FWLIB\src\stm32f10x_rcc.c(315): error:  #20: identifier "StartUpCounter" is undefined
+..\FWLIB\src\stm32f10x_rcc.c:     } while((StartUpCounter != HSE_STARTUP_TIMEOUT) && (HSEStatus == RESET));
+..\FWLIB\src\stm32f10x_rcc.c:              ^
+..\FWLIB\src\stm32f10x_rcc.c(315): error:  #20: identifier "HSE_STARTUP_TIMEOUT" is undefined
+..\FWLIB\src\stm32f10x_rcc.c:     } while((StartUpCounter != HSE_STARTUP_TIMEOUT) && (HSEStatus == RESET));
+..\FWLIB\src\stm32f10x_rcc.c:                                ^
+..\FWLIB\src\stm32f10x_rcc.c(334): error:  #757: variable "uint8_t" is not a type name
+..\FWLIB\src\stm32f10x_rcc.c:   void RCC_AdjustHSICalibrationValue(uint8_t HSICalibrationValue)
+..\FWLIB\src\stm32f10x_rcc.c:                                      ^
+..\FWLIB\src\stm32f10x_rcc.c(336): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rcc.c:     uint32_t tmpreg = 0;
+..\FWLIB\src\stm32f10x_rcc.c:     ^
+..\FWLIB\src\stm32f10x_rcc.c(341): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rcc.c:     tmpreg &= CR_HSITRIM_Mask;
+..\FWLIB\src\stm32f10x_rcc.c:               ^
+..\FWLIB\src\stm32f10x_rcc.c(341): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rcc.c:     tmpreg &= CR_HSITRIM_Mask;
+..\FWLIB\src\stm32f10x_rcc.c:               ^
+..\FWLIB\src\stm32f10x_rcc.c(343): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_rcc.c:     tmpreg |= (uint32_t)HSICalibrationValue << 3;
+..\FWLIB\src\stm32f10x_rcc.c:                         ^
+..\FWLIB\src\stm32f10x_rcc.c(358): error:  #20: identifier "__IO" is undefined
+..\FWLIB\src\stm32f10x_rcc.c:     *(__IO uint32_t *) CR_HSION_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_rcc.c:       ^
+..\FWLIB\src\stm32f10x_rcc.c(358): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rcc.c:     *(__IO uint32_t *) CR_HSION_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_rcc.c:            ^
+..\FWLIB\src\stm32f10x_rcc.c(358): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rcc.c:     *(__IO uint32_t *) CR_HSION_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_rcc.c:                                       ^
+..\FWLIB\src\stm32f10x_rcc.c: ..\FWLIB\src\stm32f10x_rcc.c: 0 warnings, 30 errors
+compiling stm32f10x_pwr.c...
+..\FWLIB\src\stm32f10x_pwr.c(128): error:  #20: identifier "__IO" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     *(__IO uint32_t *) CR_DBP_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_pwr.c:       ^
+..\FWLIB\src\stm32f10x_pwr.c(128): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_pwr.c:     *(__IO uint32_t *) CR_DBP_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_pwr.c:            ^
+..\FWLIB\src\stm32f10x_pwr.c(128): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     *(__IO uint32_t *) CR_DBP_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_pwr.c:                                     ^
+..\FWLIB\src\stm32f10x_pwr.c(128): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_pwr.c:     *(__IO uint32_t *) CR_DBP_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_pwr.c:                                              ^
+..\FWLIB\src\stm32f10x_pwr.c(141): error:  #20: identifier "__IO" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     *(__IO uint32_t *) CR_PVDE_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_pwr.c:       ^
+..\FWLIB\src\stm32f10x_pwr.c(141): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_pwr.c:     *(__IO uint32_t *) CR_PVDE_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_pwr.c:            ^
+..\FWLIB\src\stm32f10x_pwr.c(141): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     *(__IO uint32_t *) CR_PVDE_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_pwr.c:                                      ^
+..\FWLIB\src\stm32f10x_pwr.c(141): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_pwr.c:     *(__IO uint32_t *) CR_PVDE_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_pwr.c:                                               ^
+..\FWLIB\src\stm32f10x_pwr.c(158): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:   void PWR_PVDLevelConfig(uint32_t PWR_PVDLevel)
+..\FWLIB\src\stm32f10x_pwr.c:                           ^
+..\FWLIB\src\stm32f10x_pwr.c(160): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     uint32_t tmpreg = 0;
+..\FWLIB\src\stm32f10x_pwr.c:     ^
+..\FWLIB\src\stm32f10x_pwr.c(165): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     tmpreg &= CR_PLS_MASK;
+..\FWLIB\src\stm32f10x_pwr.c:               ^
+..\FWLIB\src\stm32f10x_pwr.c(165): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_pwr.c:     tmpreg &= CR_PLS_MASK;
+..\FWLIB\src\stm32f10x_pwr.c:               ^
+..\FWLIB\src\stm32f10x_pwr.c(182): error:  #20: identifier "__IO" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     *(__IO uint32_t *) CSR_EWUP_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_pwr.c:       ^
+..\FWLIB\src\stm32f10x_pwr.c(182): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_pwr.c:     *(__IO uint32_t *) CSR_EWUP_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_pwr.c:            ^
+..\FWLIB\src\stm32f10x_pwr.c(182): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     *(__IO uint32_t *) CSR_EWUP_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_pwr.c:                                       ^
+..\FWLIB\src\stm32f10x_pwr.c(182): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_pwr.c:     *(__IO uint32_t *) CSR_EWUP_BB = (uint32_t)NewState;
+..\FWLIB\src\stm32f10x_pwr.c:                                                ^
+..\FWLIB\src\stm32f10x_pwr.c(197): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:   void PWR_EnterSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry)
+..\FWLIB\src\stm32f10x_pwr.c:                          ^
+..\FWLIB\src\stm32f10x_pwr.c(197): error:  #20: identifier "uint8_t" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:   void PWR_EnterSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry)
+..\FWLIB\src\stm32f10x_pwr.c:                                                  ^
+..\FWLIB\src\stm32f10x_pwr.c(199): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     uint32_t tmpreg = 0;
+..\FWLIB\src\stm32f10x_pwr.c:     ^
+..\FWLIB\src\stm32f10x_pwr.c(207): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     tmpreg &= CR_DS_MASK;
+..\FWLIB\src\stm32f10x_pwr.c:               ^
+..\FWLIB\src\stm32f10x_pwr.c(207): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_pwr.c:     tmpreg &= CR_DS_MASK;
+..\FWLIB\src\stm32f10x_pwr.c:               ^
+..\FWLIB\src\stm32f10x_pwr.c(213): error:  #20: identifier "SCB_SCR_SLEEPDEEP" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     SCB->SCR |= SCB_SCR_SLEEPDEEP;
+..\FWLIB\src\stm32f10x_pwr.c:                 ^
+..\FWLIB\src\stm32f10x_pwr.c(228): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_pwr.c:     SCB->SCR &= (uint32_t)~((uint32_t)SCB_SCR_SLEEPDEEP);  
+..\FWLIB\src\stm32f10x_pwr.c:                           ^
+..\FWLIB\src\stm32f10x_pwr.c(239): error:  #20: identifier "PWR_CR_CWUF" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     PWR->CR |= PWR_CR_CWUF;
+..\FWLIB\src\stm32f10x_pwr.c:                ^
+..\FWLIB\src\stm32f10x_pwr.c(241): error:  #20: identifier "PWR_CR_PDDS" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     PWR->CR |= PWR_CR_PDDS;
+..\FWLIB\src\stm32f10x_pwr.c:                ^
+..\FWLIB\src\stm32f10x_pwr.c(243): error:  #20: identifier "SCB_SCR_SLEEPDEEP" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     SCB->SCR |= SCB_SCR_SLEEPDEEP;
+..\FWLIB\src\stm32f10x_pwr.c:                 ^
+..\FWLIB\src\stm32f10x_pwr.c(261): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:   FlagStatus PWR_GetFlagStatus(uint32_t PWR_FLAG)
+..\FWLIB\src\stm32f10x_pwr.c:                                ^
+..\FWLIB\src\stm32f10x_pwr.c(267): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:     if ((PWR->CSR & PWR_FLAG) != (uint32_t)RESET)
+..\FWLIB\src\stm32f10x_pwr.c:                                   ^
+..\FWLIB\src\stm32f10x_pwr.c(267): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_pwr.c:     if ((PWR->CSR & PWR_FLAG) != (uint32_t)RESET)
+..\FWLIB\src\stm32f10x_pwr.c:                                            ^
+..\FWLIB\src\stm32f10x_pwr.c(287): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_pwr.c:   void PWR_ClearFlag(uint32_t PWR_FLAG)
+..\FWLIB\src\stm32f10x_pwr.c:                      ^
+..\FWLIB\src\stm32f10x_pwr.c: ..\FWLIB\src\stm32f10x_pwr.c: 0 warnings, 30 errors
+compiling stm32f10x_rtc.c...
+..\FWLIB\src\stm32f10x_rtc.c(90): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:   void RTC_ITConfig(uint16_t RTC_IT, FunctionalState NewState)
+..\FWLIB\src\stm32f10x_rtc.c:                     ^
+..\FWLIB\src\stm32f10x_rtc.c(102): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:       RTC->CRH &= (uint16_t)~RTC_IT;
+..\FWLIB\src\stm32f10x_rtc.c:                    ^
+..\FWLIB\src\stm32f10x_rtc.c(102): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_rtc.c:       RTC->CRH &= (uint16_t)~RTC_IT;
+..\FWLIB\src\stm32f10x_rtc.c:                             ^
+..\FWLIB\src\stm32f10x_rtc.c(114): error:  #20: identifier "RTC_CRL_CNF" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:     RTC->CRL |= RTC_CRL_CNF;
+..\FWLIB\src\stm32f10x_rtc.c:                 ^
+..\FWLIB\src\stm32f10x_rtc.c(125): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:     RTC->CRL &= (uint16_t)~((uint16_t)RTC_CRL_CNF); 
+..\FWLIB\src\stm32f10x_rtc.c:                  ^
+..\FWLIB\src\stm32f10x_rtc.c(125): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_rtc.c:     RTC->CRL &= (uint16_t)~((uint16_t)RTC_CRL_CNF); 
+..\FWLIB\src\stm32f10x_rtc.c:                           ^
+..\FWLIB\src\stm32f10x_rtc.c(133): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:   uint32_t RTC_GetCounter(void)
+..\FWLIB\src\stm32f10x_rtc.c:   ^
+..\FWLIB\src\stm32f10x_rtc.c(135): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:     uint16_t tmp = 0;
+..\FWLIB\src\stm32f10x_rtc.c:     ^
+..\FWLIB\src\stm32f10x_rtc.c(137): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:     return (((uint32_t)RTC->CNTH << 16 ) | tmp) ;
+..\FWLIB\src\stm32f10x_rtc.c:               ^
+..\FWLIB\src\stm32f10x_rtc.c(145): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:   void RTC_SetCounter(uint32_t CounterValue)
+..\FWLIB\src\stm32f10x_rtc.c:                       ^
+..\FWLIB\src\stm32f10x_rtc.c(151): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:     RTC->CNTL = (CounterValue & RTC_LSB_MASK);
+..\FWLIB\src\stm32f10x_rtc.c:                                 ^
+..\FWLIB\src\stm32f10x_rtc.c(151): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rtc.c:     RTC->CNTL = (CounterValue & RTC_LSB_MASK);
+..\FWLIB\src\stm32f10x_rtc.c:                                 ^
+..\FWLIB\src\stm32f10x_rtc.c(160): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:   void RTC_SetPrescaler(uint32_t PrescalerValue)
+..\FWLIB\src\stm32f10x_rtc.c:                         ^
+..\FWLIB\src\stm32f10x_rtc.c(167): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:     RTC->PRLH = (PrescalerValue & PRLH_MSB_MASK) >> 16;
+..\FWLIB\src\stm32f10x_rtc.c:                                   ^
+..\FWLIB\src\stm32f10x_rtc.c(167): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rtc.c:     RTC->PRLH = (PrescalerValue & PRLH_MSB_MASK) >> 16;
+..\FWLIB\src\stm32f10x_rtc.c:                                   ^
+..\FWLIB\src\stm32f10x_rtc.c(169): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rtc.c:     RTC->PRLL = (PrescalerValue & RTC_LSB_MASK);
+..\FWLIB\src\stm32f10x_rtc.c:                                   ^
+..\FWLIB\src\stm32f10x_rtc.c(178): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:   void RTC_SetAlarm(uint32_t AlarmValue)
+..\FWLIB\src\stm32f10x_rtc.c:                     ^
+..\FWLIB\src\stm32f10x_rtc.c(184): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:     RTC->ALRL = (AlarmValue & RTC_LSB_MASK);
+..\FWLIB\src\stm32f10x_rtc.c:                               ^
+..\FWLIB\src\stm32f10x_rtc.c(184): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rtc.c:     RTC->ALRL = (AlarmValue & RTC_LSB_MASK);
+..\FWLIB\src\stm32f10x_rtc.c:                               ^
+..\FWLIB\src\stm32f10x_rtc.c(193): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:   uint32_t RTC_GetDivider(void)
+..\FWLIB\src\stm32f10x_rtc.c:   ^
+..\FWLIB\src\stm32f10x_rtc.c(195): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:     uint32_t tmp = 0x00;
+..\FWLIB\src\stm32f10x_rtc.c:     ^
+..\FWLIB\src\stm32f10x_rtc.c(196): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:     tmp = ((uint32_t)RTC->DIVH & (uint32_t)0x000F) << 16;
+..\FWLIB\src\stm32f10x_rtc.c:             ^
+..\FWLIB\src\stm32f10x_rtc.c(196): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rtc.c:     tmp = ((uint32_t)RTC->DIVH & (uint32_t)0x000F) << 16;
+..\FWLIB\src\stm32f10x_rtc.c:                                            ^
+..\FWLIB\src\stm32f10x_rtc.c(198): warning:  #1166-D: returning pointer to local variable
+..\FWLIB\src\stm32f10x_rtc.c:     return tmp;
+..\FWLIB\src\stm32f10x_rtc.c:            ^
+..\FWLIB\src\stm32f10x_rtc.c(210): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:     while ((RTC->CRL & RTC_FLAG_RTOFF) == (uint16_t)RESET)
+..\FWLIB\src\stm32f10x_rtc.c:                                            ^
+..\FWLIB\src\stm32f10x_rtc.c(210): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rtc.c:     while ((RTC->CRL & RTC_FLAG_RTOFF) == (uint16_t)RESET)
+..\FWLIB\src\stm32f10x_rtc.c:                                                     ^
+..\FWLIB\src\stm32f10x_rtc.c(226): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:     RTC->CRL &= (uint16_t)~RTC_FLAG_RSF;
+..\FWLIB\src\stm32f10x_rtc.c:                  ^
+..\FWLIB\src\stm32f10x_rtc.c(226): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_rtc.c:     RTC->CRL &= (uint16_t)~RTC_FLAG_RSF;
+..\FWLIB\src\stm32f10x_rtc.c:                           ^
+..\FWLIB\src\stm32f10x_rtc.c(228): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_rtc.c:     while ((RTC->CRL & RTC_FLAG_RSF) == (uint16_t)RESET)
+..\FWLIB\src\stm32f10x_rtc.c:                                                   ^
+..\FWLIB\src\stm32f10x_rtc.c(244): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:   FlagStatus RTC_GetFlagStatus(uint16_t RTC_FLAG)
+..\FWLIB\src\stm32f10x_rtc.c:                                ^
+..\FWLIB\src\stm32f10x_rtc.c(251): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_rtc.c:     if ((RTC->CRL & RTC_FLAG) != (uint16_t)RESET)
+..\FWLIB\src\stm32f10x_rtc.c:                                   ^
+..\FWLIB\src\stm32f10x_rtc.c: ..\FWLIB\src\stm32f10x_rtc.c: 1 warning, 30 errors
+compiling stm32f10x_tim.c...
+..\FWLIB\src\stm32f10x_tim.c(77): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_tim.c:   static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\FWLIB\src\stm32f10x_tim.c:                                             ^
+..\FWLIB\src\stm32f10x_tim.c(77): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_tim.c:   static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\FWLIB\src\stm32f10x_tim.c:                                                                      ^
+..\FWLIB\src\stm32f10x_tim.c(78): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_tim.c:                          uint16_t TIM_ICFilter);
+..\FWLIB\src\stm32f10x_tim.c:                          ^
+..\FWLIB\src\stm32f10x_tim.c(79): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_tim.c:   static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\FWLIB\src\stm32f10x_tim.c:                                             ^
+..\FWLIB\src\stm32f10x_tim.c(79): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_tim.c:   static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\FWLIB\src\stm32f10x_tim.c:                                                                      ^
+..\FWLIB\src\stm32f10x_tim.c(80): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_tim.c:                          uint16_t TIM_ICFilter);
+..\FWLIB\src\stm32f10x_tim.c:                          ^
+..\FWLIB\src\stm32f10x_tim.c(81): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_tim.c:   static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\FWLIB\src\stm32f10x_tim.c:                                             ^
+..\FWLIB\src\stm32f10x_tim.c(81): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_tim.c:   static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\FWLIB\src\stm32f10x_tim.c:                                                                      ^
+..\FWLIB\src\stm32f10x_tim.c(82): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_tim.c:                          uint16_t TIM_ICFilter);
+..\FWLIB\src\stm32f10x_tim.c:                          ^
+..\FWLIB\src\stm32f10x_tim.c(83): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_tim.c:   static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\FWLIB\src\stm32f10x_tim.c:                                             ^
+..\FWLIB\src\stm32f10x_tim.c(83): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_tim.c:   static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\FWLIB\src\stm32f10x_tim.c:                                                                      ^
+..\FWLIB\src\stm32f10x_tim.c(84): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_tim.c:                          uint16_t TIM_ICFilter);
+..\FWLIB\src\stm32f10x_tim.c:                          ^
+..\FWLIB\src\stm32f10x_tim.c(167): error:  #20: identifier "TIM9" is undefined
+..\FWLIB\src\stm32f10x_tim.c:     else if (TIMx == TIM9)
+..\FWLIB\src\stm32f10x_tim.c:                      ^
+..\FWLIB\src\stm32f10x_tim.c(169): error:  #20: identifier "RCC_APB2Periph_TIM9" is undefined
+..\FWLIB\src\stm32f10x_tim.c:       RCC_APB2PeriphResetCmd(RCC_APB2Periph_TIM9, ENABLE);
+..\FWLIB\src\stm32f10x_tim.c:                              ^
+..\FWLIB\src\stm32f10x_tim.c(172): error:  #20: identifier "TIM10" is undefined
+..\FWLIB\src\stm32f10x_tim.c:     else if (TIMx == TIM10)
+..\FWLIB\src\stm32f10x_tim.c:                      ^
+..\FWLIB\src\stm32f10x_tim.c(174): error:  #20: identifier "RCC_APB2Periph_TIM10" is undefined
+..\FWLIB\src\stm32f10x_tim.c:       RCC_APB2PeriphResetCmd(RCC_APB2Periph_TIM10, ENABLE);
+..\FWLIB\src\stm32f10x_tim.c:                              ^
+..\FWLIB\src\stm32f10x_tim.c(177): error:  #20: identifier "TIM11" is undefined
+..\FWLIB\src\stm32f10x_tim.c:     else if (TIMx == TIM11) 
+..\FWLIB\src\stm32f10x_tim.c:                      ^
+..\FWLIB\src\stm32f10x_tim.c(179): error:  #20: identifier "RCC_APB2Periph_TIM11" is undefined
+..\FWLIB\src\stm32f10x_tim.c:       RCC_APB2PeriphResetCmd(RCC_APB2Periph_TIM11, ENABLE);
+..\FWLIB\src\stm32f10x_tim.c:                              ^
+..\FWLIB\src\stm32f10x_tim.c(182): error:  #20: identifier "TIM12" is undefined
+..\FWLIB\src\stm32f10x_tim.c:     else if (TIMx == TIM12)
+..\FWLIB\src\stm32f10x_tim.c:                      ^
+..\FWLIB\src\stm32f10x_tim.c(184): error:  #20: identifier "RCC_APB1Periph_TIM12" is undefined
+..\FWLIB\src\stm32f10x_tim.c:       RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM12, ENABLE);
+..\FWLIB\src\stm32f10x_tim.c:                              ^
+..\FWLIB\src\stm32f10x_tim.c(187): error:  #20: identifier "TIM13" is undefined
+..\FWLIB\src\stm32f10x_tim.c:     else if (TIMx == TIM13) 
+..\FWLIB\src\stm32f10x_tim.c:                      ^
+..\FWLIB\src\stm32f10x_tim.c(189): error:  #20: identifier "RCC_APB1Periph_TIM13" is undefined
+..\FWLIB\src\stm32f10x_tim.c:       RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM13, ENABLE);
+..\FWLIB\src\stm32f10x_tim.c:                              ^
+..\FWLIB\src\stm32f10x_tim.c(192): error:  #20: identifier "TIM14" is undefined
+..\FWLIB\src\stm32f10x_tim.c:     else if (TIMx == TIM14) 
+..\FWLIB\src\stm32f10x_tim.c:                      ^
+..\FWLIB\src\stm32f10x_tim.c(194): error:  #20: identifier "RCC_APB1Periph_TIM14" is undefined
+..\FWLIB\src\stm32f10x_tim.c:       RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM14, ENABLE);
+..\FWLIB\src\stm32f10x_tim.c:                              ^
+..\FWLIB\src\stm32f10x_tim.c(197): error:  #20: identifier "TIM15" is undefined
+..\FWLIB\src\stm32f10x_tim.c:     else if (TIMx == TIM15)
+..\FWLIB\src\stm32f10x_tim.c:                      ^
+..\FWLIB\src\stm32f10x_tim.c(199): error:  #20: identifier "RCC_APB2Periph_TIM15" is undefined
+..\FWLIB\src\stm32f10x_tim.c:       RCC_APB2PeriphResetCmd(RCC_APB2Periph_TIM15, ENABLE);
+..\FWLIB\src\stm32f10x_tim.c:                              ^
+..\FWLIB\src\stm32f10x_tim.c(202): error:  #20: identifier "TIM16" is undefined
+..\FWLIB\src\stm32f10x_tim.c:     else if (TIMx == TIM16)
+..\FWLIB\src\stm32f10x_tim.c:                      ^
+..\FWLIB\src\stm32f10x_tim.c(204): error:  #20: identifier "RCC_APB2Periph_TIM16" is undefined
+..\FWLIB\src\stm32f10x_tim.c:       RCC_APB2PeriphResetCmd(RCC_APB2Periph_TIM16, ENABLE);
+..\FWLIB\src\stm32f10x_tim.c:                              ^
+..\FWLIB\src\stm32f10x_tim.c(209): error:  #20: identifier "TIM17" is undefined
+..\FWLIB\src\stm32f10x_tim.c:       if (TIMx == TIM17)
+..\FWLIB\src\stm32f10x_tim.c:                   ^
+..\FWLIB\src\stm32f10x_tim.c(211): error:  #20: identifier "RCC_APB2Periph_TIM17" is undefined
+..\FWLIB\src\stm32f10x_tim.c:         RCC_APB2PeriphResetCmd(RCC_APB2Periph_TIM17, ENABLE);
+..\FWLIB\src\stm32f10x_tim.c:                                ^
+..\FWLIB\src\stm32f10x_tim.c: ..\FWLIB\src\stm32f10x_tim.c: 0 warnings, 30 errors
+compiling stm32f10x_usart.c...
+..\FWLIB\src\stm32f10x_usart.c(178): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_usart.c:     uint32_t tmpreg = 0x00, apbclock = 0x00;
+..\FWLIB\src\stm32f10x_usart.c:     ^
+..\FWLIB\src\stm32f10x_usart.c(179): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_usart.c:     uint32_t integerdivider = 0x00;
+..\FWLIB\src\stm32f10x_usart.c:     ^
+..\FWLIB\src\stm32f10x_usart.c(180): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_usart.c:     uint32_t fractionaldivider = 0x00;
+..\FWLIB\src\stm32f10x_usart.c:     ^
+..\FWLIB\src\stm32f10x_usart.c(181): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_usart.c:     uint32_t usartxbase = 0;
+..\FWLIB\src\stm32f10x_usart.c:     ^
+..\FWLIB\src\stm32f10x_usart.c(197): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_usart.c:     usartxbase = (uint32_t)USARTx;
+..\FWLIB\src\stm32f10x_usart.c:                   ^
+..\FWLIB\src\stm32f10x_usart.c(197): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_usart.c:     usartxbase = (uint32_t)USARTx;
+..\FWLIB\src\stm32f10x_usart.c:                            ^
+..\FWLIB\src\stm32f10x_usart.c(202): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_usart.c:     tmpreg &= CR2_STOP_CLEAR_Mask;
+..\FWLIB\src\stm32f10x_usart.c:               ^
+..\FWLIB\src\stm32f10x_usart.c(202): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_usart.c:     tmpreg &= CR2_STOP_CLEAR_Mask;
+..\FWLIB\src\stm32f10x_usart.c:               ^
+..\FWLIB\src\stm32f10x_usart.c(205): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_usart.c:     tmpreg |= (uint32_t)USART_InitStruct->USART_StopBits;
+..\FWLIB\src\stm32f10x_usart.c:                         ^
+..\FWLIB\src\stm32f10x_usart.c(208): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_usart.c:     USARTx->CR2 = (uint16_t)tmpreg;
+..\FWLIB\src\stm32f10x_usart.c:                             ^
+..\FWLIB\src\stm32f10x_usart.c(213): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_usart.c:     tmpreg &= CR1_CLEAR_Mask;
+..\FWLIB\src\stm32f10x_usart.c:               ^
+..\FWLIB\src\stm32f10x_usart.c(218): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_usart.c:     tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+..\FWLIB\src\stm32f10x_usart.c:                         ^
+..\FWLIB\src\stm32f10x_usart.c(221): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_usart.c:     USARTx->CR1 = (uint16_t)tmpreg;
+..\FWLIB\src\stm32f10x_usart.c:                             ^
+..\FWLIB\src\stm32f10x_usart.c(226): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_usart.c:     tmpreg &= CR3_CLEAR_Mask;
+..\FWLIB\src\stm32f10x_usart.c:               ^
+..\FWLIB\src\stm32f10x_usart.c(231): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_usart.c:     USARTx->CR3 = (uint16_t)tmpreg;
+..\FWLIB\src\stm32f10x_usart.c:                             ^
+..\FWLIB\src\stm32f10x_usart.c(264): error:  #20: identifier "uint8_t" is undefined
+..\FWLIB\src\stm32f10x_usart.c:       tmpreg |= ((((fractionaldivider * 8) + 50) / 100)) & ((uint8_t)0x07);
+..\FWLIB\src\stm32f10x_usart.c:                                                              ^
+..\FWLIB\src\stm32f10x_usart.c(264): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_usart.c:       tmpreg |= ((((fractionaldivider * 8) + 50) / 100)) & ((uint8_t)0x07);
+..\FWLIB\src\stm32f10x_usart.c:                                                                      ^
+..\FWLIB\src\stm32f10x_usart.c(268): error:  #20: identifier "uint8_t" is undefined
+..\FWLIB\src\stm32f10x_usart.c:       tmpreg |= ((((fractionaldivider * 16) + 50) / 100)) & ((uint8_t)0x0F);
+..\FWLIB\src\stm32f10x_usart.c:                                                               ^
+..\FWLIB\src\stm32f10x_usart.c(268): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_usart.c:       tmpreg |= ((((fractionaldivider * 16) + 50) / 100)) & ((uint8_t)0x0F);
+..\FWLIB\src\stm32f10x_usart.c:                                                                       ^
+..\FWLIB\src\stm32f10x_usart.c(272): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_usart.c:     USARTx->BRR = (uint16_t)tmpreg;
+..\FWLIB\src\stm32f10x_usart.c:                             ^
+..\FWLIB\src\stm32f10x_usart.c(304): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_usart.c:     uint32_t tmpreg = 0x00;
+..\FWLIB\src\stm32f10x_usart.c:     ^
+..\FWLIB\src\stm32f10x_usart.c(315): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_usart.c:     tmpreg &= CR2_CLOCK_CLEAR_Mask;
+..\FWLIB\src\stm32f10x_usart.c:               ^
+..\FWLIB\src\stm32f10x_usart.c(315): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_usart.c:     tmpreg &= CR2_CLOCK_CLEAR_Mask;
+..\FWLIB\src\stm32f10x_usart.c:               ^
+..\FWLIB\src\stm32f10x_usart.c(321): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_usart.c:     tmpreg |= (uint32_t)USART_ClockInitStruct->USART_Clock | USART_ClockInitStruct->USART_CPOL | 
+..\FWLIB\src\stm32f10x_usart.c:                ^
+..\FWLIB\src\stm32f10x_usart.c(321): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_usart.c:     tmpreg |= (uint32_t)USART_ClockInitStruct->USART_Clock | USART_ClockInitStruct->USART_CPOL | 
+..\FWLIB\src\stm32f10x_usart.c:                         ^
+..\FWLIB\src\stm32f10x_usart.c(324): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_usart.c:     USARTx->CR2 = (uint16_t)tmpreg;
+..\FWLIB\src\stm32f10x_usart.c:                             ^
+..\FWLIB\src\stm32f10x_usart.c(360): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_usart.c:       USARTx->CR1 |= CR1_UE_Set;
+..\FWLIB\src\stm32f10x_usart.c:                      ^
+..\FWLIB\src\stm32f10x_usart.c(360): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_usart.c:       USARTx->CR1 |= CR1_UE_Set;
+..\FWLIB\src\stm32f10x_usart.c:                      ^
+..\FWLIB\src\stm32f10x_usart.c(365): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_usart.c:       USARTx->CR1 &= CR1_UE_Reset;
+..\FWLIB\src\stm32f10x_usart.c:                      ^
+..\FWLIB\src\stm32f10x_usart.c(365): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_usart.c:       USARTx->CR1 &= CR1_UE_Reset;
+..\FWLIB\src\stm32f10x_usart.c:                      ^
+..\FWLIB\src\stm32f10x_usart.c: ..\FWLIB\src\stm32f10x_usart.c: 0 warnings, 30 errors
+compiling stm32f10x_gpio.c...
+..\FWLIB\src\stm32f10x_gpio.c(175): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_gpio.c:     uint32_t currentmode = 0x00, currentpin = 0x00, pinpos = 0x00, pos = 0x00;
+..\FWLIB\src\stm32f10x_gpio.c:     ^
+..\FWLIB\src\stm32f10x_gpio.c(176): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_gpio.c:     uint32_t tmpreg = 0x00, pinmask = 0x00;
+..\FWLIB\src\stm32f10x_gpio.c:     ^
+..\FWLIB\src\stm32f10x_gpio.c(183): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_gpio.c:     currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+..\FWLIB\src\stm32f10x_gpio.c:                     ^
+..\FWLIB\src\stm32f10x_gpio.c(183): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:     currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+..\FWLIB\src\stm32f10x_gpio.c:                              ^
+..\FWLIB\src\stm32f10x_gpio.c(183): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:     currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+..\FWLIB\src\stm32f10x_gpio.c:                                                                       ^
+..\FWLIB\src\stm32f10x_gpio.c(184): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:     if ((((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x10)) != 0x00)
+..\FWLIB\src\stm32f10x_gpio.c:                     ^
+..\FWLIB\src\stm32f10x_gpio.c(184): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:     if ((((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x10)) != 0x00)
+..\FWLIB\src\stm32f10x_gpio.c:                                                              ^
+..\FWLIB\src\stm32f10x_gpio.c(189): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_gpio.c:       currentmode |= (uint32_t)GPIO_InitStruct->GPIO_Speed;
+..\FWLIB\src\stm32f10x_gpio.c:                                ^
+..\FWLIB\src\stm32f10x_gpio.c(193): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:     if (((uint32_t)GPIO_InitStruct->GPIO_Pin & ((uint32_t)0x00FF)) != 0x00)
+..\FWLIB\src\stm32f10x_gpio.c:                    ^
+..\FWLIB\src\stm32f10x_gpio.c(198): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:         pos = ((uint32_t)0x01) << pinpos;
+..\FWLIB\src\stm32f10x_gpio.c:                          ^
+..\FWLIB\src\stm32f10x_gpio.c(205): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:           pinmask = ((uint32_t)0x0F) << pos;
+..\FWLIB\src\stm32f10x_gpio.c:                                ^
+..\FWLIB\src\stm32f10x_gpio.c(212): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:             GPIOx->BRR = (((uint32_t)0x01) << pinpos);
+..\FWLIB\src\stm32f10x_gpio.c:                                      ^
+..\FWLIB\src\stm32f10x_gpio.c(219): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:               GPIOx->BSRR = (((uint32_t)0x01) << pinpos);
+..\FWLIB\src\stm32f10x_gpio.c:                                         ^
+..\FWLIB\src\stm32f10x_gpio.c(233): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:         pos = (((uint32_t)0x01) << (pinpos + 0x08));
+..\FWLIB\src\stm32f10x_gpio.c:                           ^
+..\FWLIB\src\stm32f10x_gpio.c(240): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:           pinmask = ((uint32_t)0x0F) << pos;
+..\FWLIB\src\stm32f10x_gpio.c:                                ^
+..\FWLIB\src\stm32f10x_gpio.c(247): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:             GPIOx->BRR = (((uint32_t)0x01) << (pinpos + 0x08));
+..\FWLIB\src\stm32f10x_gpio.c:                                      ^
+..\FWLIB\src\stm32f10x_gpio.c(252): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:             GPIOx->BSRR = (((uint32_t)0x01) << (pinpos + 0x08));
+..\FWLIB\src\stm32f10x_gpio.c:                                       ^
+..\FWLIB\src\stm32f10x_gpio.c(281): error:  #20: identifier "uint8_t" is undefined
+..\FWLIB\src\stm32f10x_gpio.c:   uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+..\FWLIB\src\stm32f10x_gpio.c:   ^
+..\FWLIB\src\stm32f10x_gpio.c(281): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_gpio.c:   uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+..\FWLIB\src\stm32f10x_gpio.c:                                                      ^
+..\FWLIB\src\stm32f10x_gpio.c(283): error:  #20: identifier "uint8_t" is undefined
+..\FWLIB\src\stm32f10x_gpio.c:     uint8_t bitstatus = 0x00;
+..\FWLIB\src\stm32f10x_gpio.c:     ^
+..\FWLIB\src\stm32f10x_gpio.c(289): error:  #20: identifier "uint32_t" is undefined
+..\FWLIB\src\stm32f10x_gpio.c:     if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)Bit_RESET)
+..\FWLIB\src\stm32f10x_gpio.c:                                     ^
+..\FWLIB\src\stm32f10x_gpio.c(289): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:     if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)Bit_RESET)
+..\FWLIB\src\stm32f10x_gpio.c:                                              ^
+..\FWLIB\src\stm32f10x_gpio.c(291): error:  #20: identifier "uint8_t" is undefined
+..\FWLIB\src\stm32f10x_gpio.c:       bitstatus = (uint8_t)Bit_SET;
+..\FWLIB\src\stm32f10x_gpio.c:                    ^
+..\FWLIB\src\stm32f10x_gpio.c(291): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_gpio.c:       bitstatus = (uint8_t)Bit_SET;
+..\FWLIB\src\stm32f10x_gpio.c:                            ^
+..\FWLIB\src\stm32f10x_gpio.c(295): error:  #20: identifier "uint8_t" is undefined
+..\FWLIB\src\stm32f10x_gpio.c:       bitstatus = (uint8_t)Bit_RESET;
+..\FWLIB\src\stm32f10x_gpio.c:                    ^
+..\FWLIB\src\stm32f10x_gpio.c(295): error:  #65: expected a ";"
+..\FWLIB\src\stm32f10x_gpio.c:       bitstatus = (uint8_t)Bit_RESET;
+..\FWLIB\src\stm32f10x_gpio.c:                            ^
+..\FWLIB\src\stm32f10x_gpio.c(297): warning:  #1166-D: returning pointer to local variable
+..\FWLIB\src\stm32f10x_gpio.c:     return bitstatus;
+..\FWLIB\src\stm32f10x_gpio.c:            ^
+..\FWLIB\src\stm32f10x_gpio.c(305): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_gpio.c:   uint16_t GPIO_ReadInputData(GPIO_TypeDef* GPIOx)
+..\FWLIB\src\stm32f10x_gpio.c:   ^
+..\FWLIB\src\stm32f10x_gpio.c(310): error:  #20: identifier "uint16_t" is undefined
+..\FWLIB\src\stm32f10x_gpio.c:     return ((uint16_t)GPIOx->IDR);
+..\FWLIB\src\stm32f10x_gpio.c:              ^
+..\FWLIB\src\stm32f10x_gpio.c(310): error:  #18: expected a ")"
+..\FWLIB\src\stm32f10x_gpio.c:     return ((uint16_t)GPIOx->IDR);
+..\FWLIB\src\stm32f10x_gpio.c:                       ^
+..\FWLIB\src\stm32f10x_gpio.c(320): error:  #20: identifier "uint8_t" is undefined
+..\FWLIB\src\stm32f10x_gpio.c:   uint8_t GPIO_ReadOutputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+..\FWLIB\src\stm32f10x_gpio.c:   ^
+..\FWLIB\src\stm32f10x_gpio.c: ..\FWLIB\src\stm32f10x_gpio.c: 1 warning, 30 errors
+Project build/rebuild aborted.
+Target not created
+Build target 'liu'
+compiling misc.c...
+compiling stm32f10x_adc.c...
+compiling stm32f10x_bkp.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_pwr.c...
+compiling stm32f10x_rtc.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_gpio.c...
+compiling core_cm3.c...
+assembling startup_stm32f10x_md.s...
+compiling i2c.c...
+compiling lcd.c...
+compiling main.c...
+compiling stm32f10x_it.c...
+compiling system_stm32f10x.c...
+linking...
+Program Size: Code=5564 RO-data=4828 RW-data=52 ZI-data=1636  
+"..\OUTPUT\liu.axf" - 0 Error(s), 0 Warning(s).
+Build target 'liu'
+compiling misc.c...
+compiling stm32f10x_adc.c...
+compiling stm32f10x_bkp.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_pwr.c...
+compiling stm32f10x_rtc.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_gpio.c...
+compiling core_cm3.c...
+assembling startup_stm32f10x_md.s...
+compiling i2c.c...
+compiling lcd.c...
+compiling main.c...
+compiling stm32f10x_it.c...
+compiling system_stm32f10x.c...
+linking...
+Program Size: Code=5652 RO-data=4828 RW-data=52 ZI-data=1636  
+"..\OUTPUT\liu.axf" - 0 Error(s), 0 Warning(s).
+Build target 'liu'
+compiling misc.c...
+compiling stm32f10x_adc.c...
+compiling stm32f10x_bkp.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_pwr.c...
+compiling stm32f10x_rtc.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_gpio.c...
+compiling core_cm3.c...
+assembling startup_stm32f10x_md.s...
+compiling i2c.c...
+compiling lcd.c...
+compiling main.c...
+main.c(19): error:  #20: identifier "lEDALL" is undefined
+main.c:         LED_c(lEDALL,0);
+main.c:               ^
+main.c(48): error:  #20: identifier "LED" is undefined
+main.c:                 GPIO_SetBits(GPIOC,LED);
+main.c:                                    ^
+main.c(53): error:  #20: identifier "LED" is undefined
+main.c:                 GPIO_ResetBits(GPIOC,LED);
+main.c:                                      ^
+main.c: main.c: 0 warnings, 3 errors
+compiling stm32f10x_it.c...
+compiling system_stm32f10x.c...
+Target not created
+Build target 'liu'
+compiling misc.c...
+compiling stm32f10x_adc.c...
+compiling stm32f10x_bkp.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_pwr.c...
+compiling stm32f10x_rtc.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_gpio.c...
+compiling core_cm3.c...
+assembling startup_stm32f10x_md.s...
+compiling i2c.c...
+compiling lcd.c...
+compiling main.c...
+main.c(19): error:  #20: identifier "lEDALL" is undefined
+main.c:         LED_c(lEDALL,0);
+main.c:               ^
+main.c: main.c: 0 warnings, 1 error
+compiling stm32f10x_it.c...
+compiling system_stm32f10x.c...
+Target not created
+Build target 'liu'
+compiling misc.c...
+compiling stm32f10x_adc.c...
+compiling stm32f10x_bkp.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_pwr.c...
+compiling stm32f10x_rtc.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_gpio.c...
+compiling core_cm3.c...
+assembling startup_stm32f10x_md.s...
+compiling i2c.c...
+compiling lcd.c...
+compiling main.c...
+compiling stm32f10x_it.c...
+compiling system_stm32f10x.c...
+linking...
+Program Size: Code=5788 RO-data=4828 RW-data=52 ZI-data=1636  
+"..\OUTPUT\liu.axf" - 0 Error(s), 0 Warning(s).
+Load "..\\OUTPUT\\liu.AXF" 
+*** Error: 'F:\Keil\ARM\BIN\coocox-agdi.dll' invalid peripheral driver
