@@ -23,11 +23,22 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
-
+  #define USARTz                   USART2
+  #define USARTz_GPIO              GPIOA
+  #define USARTz_CLK               RCC_APB1Periph_USART2
+  #define USARTz_GPIO_CLK          RCC_APB2Periph_GPIOA
+  #define USARTz_RxPin             GPIO_Pin_3
+  #define USARTz_TxPin             GPIO_Pin_2
+  #define USARTz_IRQn              USART2_IRQn
+  #define USARTz_IRQHandler        USART2_IRQHandler
 extern u32 TimingDelay;
 extern u32 adc_flag;
 u32 adc_time = 0;
 extern uint32_t TimeDisplay;
+u8 RX_time = 0;
+u8 time_flag = 0;
+extern u8 k_v; 
+u8 rx_over = 0;
 /** @addtogroup STM32F10x_StdPeriph_Examples
   * @{
   */
@@ -144,8 +155,37 @@ void SysTick_Handler(void)
 		adc_time = 0;
 		adc_flag = 1;
 	}
-}
+}void USART2_IRQHandler(void)
+{
+  u8 temp;
+  u8 k_zhi;
+  if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)
+  {
+   	USART_ClearITPendingBit(USART2, USART_IT_RXNE);
+    temp = USART_ReceiveData(USARTz);
+	if(temp == '\n')
+	{
+		rx_over = 1;
+		time_flag = 0;
+	    USART_ITConfig(USART2, USART_IT_RXNE, DISABLE);	
+	}
+	else if(temp == 'k' || temp == 'K')
+	{
+		time_flag = 1;
+	}
+	else if(time_flag != 0)
+	{
+		time_flag++;
+		if(time_flag == 4)
+		{
+			k_zhi = temp;
+			k_v = k_zhi;
+			k_v = k_v - 48;	
+		}
+	}
 
+  }
+}
 /******************************************************************************/
 /*                 STM32F10x Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */

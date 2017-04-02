@@ -3,7 +3,7 @@
 #include "stm32f10x.h"
 #include "lcd.h"
 #include "led.h"
-
+#include "I2C.h"
 uint32_t HH = 23,MM = 59, SS = 50;
 void LCD_Init(void);
 u32 TimingDelay = 0;
@@ -12,7 +12,9 @@ u8 timestr[20];
 u32 adc_flag = 0;
 float adc_value;
 u8 adcstr[20];
-u8 k_v = 1;
+u8 k_v = 1;	
+extern u8 rx_over;
+
 void Delay_Ms(u32 nTime);
 void LED_Init(void);
 void LED_c(u16 lED,u8 status);
@@ -20,6 +22,8 @@ void RTC_Init(void);
 void Time_Display(uint32_t TimeVar);
 void ADC_Con(void);
 float R_ADC(void);
+void UASRT_Con(void);
+void USART_SendString(int8_t *str);
 int main(void)
 {
 	SysTick_Config(SystemCoreClock/1000);
@@ -29,6 +33,8 @@ int main(void)
 	LED_c(LEDALL,0);
 
 	ADC_Con();
+	UASRT_Con();
+
 	while(1)
 	{
 		if (TimeDisplay == 1)
@@ -47,7 +53,74 @@ int main(void)
 			LCD_DisplayStringLine(Line4,adcstr);
 			LCD_DisplayStringLine(Line6,"LED: OFF");
 		}
+		if(rx_over == 1)
+		{
+			rx_over = 0;
+            sprintf((char*)adcstr,"k :  0.%d",k_v);
+			USART_SendString("ok\n");
+			USART_ITConfig(USART2, USART_IT_RXNE,ENABLE);
+		}
 	}
+}
+void write_c(u8 add,u8 data)
+{
+	I2CStart();	
+}
+void read_c(u8 add)
+{
+	
+}
+void USART_SendString(int8_t *str)
+{
+    uint8_t index = 0;
+    
+    do
+    {
+        USART_SendData(USART2,str[index]);
+        while(USART_GetFlagStatus(USART2,USART_FLAG_TXE) == RESET);
+        index++;        
+    }
+    while(str[index] != 0);  //检查字符串结束标志
+    
+}
+void UASRT_Con(void)
+{
+  NVIC_InitTypeDef NVIC_InitStructure;
+  USART_InitTypeDef USART_InitStructure;
+  GPIO_InitTypeDef GPIO_InitStructure;
+
+  RCC_APB2PeriphClockCmd(USARTz_GPIO_CLK, ENABLE);
+  RCC_APB1PeriphClockCmd(USARTz_CLK, ENABLE); 
+
+  NVIC_InitStructure.NVIC_IRQChannel = USARTz_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+   USART_InitStructure.USART_BaudRate = 9600;
+  USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+  USART_InitStructure.USART_StopBits = USART_StopBits_1;
+  USART_InitStructure.USART_Parity = USART_Parity_No;
+  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+  USART_Init(USARTz, &USART_InitStructure);
+  
+
+  /* Enable USARTz Receive and Transmit interrupts */
+  USART_ITConfig(USARTz, USART_IT_RXNE, ENABLE);
+
+  /* Enable the USARTz */
+  USART_Cmd(USARTz, ENABLE);
+
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+    //配置USART2 RX引脚工作模式
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
 }
 float R_ADC(void)
 {	float ADC_VALUE;
