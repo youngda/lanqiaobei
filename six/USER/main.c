@@ -51,7 +51,15 @@ int main(void)
 	while(1)
 	{	key_scan();
 	    LED_shan();
-		
+		if(rx_over == 1)
+		{
+			rx_over = 0;
+            sprintf((char*)adcstr,"k :  0.%d",k_v);
+			USART_SendString("ok\n");
+			write_c(0x01,k_v);
+	        Delay_Ms(2);
+			USART_ITConfig(USART2, USART_IT_RXNE,ENABLE);
+		}		
 		if(time_set == 0)
 		{
 			if (TimeDisplay == 1)
@@ -75,15 +83,7 @@ int main(void)
 				else{baojing = 0;}
 	
 			}
-			if(rx_over == 1)
-			{
-				rx_over = 0;
-	            sprintf((char*)adcstr,"k :  0.%d",k_v);
-				USART_SendString("ok\n");
-				write_c(0x01,k_v);
-		        Delay_Ms(2);
-				USART_ITConfig(USART2, USART_IT_RXNE,ENABLE);
-			}
+			
 		}
 	}
 }
@@ -116,6 +116,7 @@ void LED_shan(void)
 }
 
 u8 btime[20];
+u8 r3flag = 0;
 void key_scan(void)
 {
 	if(RB1 == 0)
@@ -123,17 +124,18 @@ void key_scan(void)
 		Delay_Ms(10);
 		if(RB1 == 0)
 		{
-			if(led_sw == 1)
+			if(time_set == 0)
 			{
-				led_sw = 0;
-				LCD_DisplayStringLine(Line6,"LED: OFF");	
-			}	
-			else if(led_sw == 0)
-			{
-				led_sw = 1;
-				LCD_DisplayStringLine(Line2,adcstr);
-				LCD_DisplayStringLine(Line4,adcstr);
-				LCD_DisplayStringLine(Line6,"LED: ON   ");	
+				if(led_sw == 1)
+				{
+					led_sw = 0;
+					LCD_DisplayStringLine(Line6,"LED: OFF            ");	
+				}	
+				else if(led_sw == 0)
+				{
+					led_sw = 1;
+					LCD_DisplayStringLine(Line6,"LED: ON               ");	
+				}
 			}
 		}
 		while(!RB1);
@@ -151,9 +153,9 @@ void key_scan(void)
 				LCD_DisplayStringLine(Line2,"      Setting       ");
 				LCD_DisplayStringLine(Line3,"                    ");
 				LCD_DisplayStringLine(Line4,"                    ");
-				sprintf((char*)btime,"%0.2d - %0.2d  - %0.2d  ",BHH, BMM, BSS);					
+				sprintf((char*)btime,"   %0.2d - %0.2d  - %0.2d  ",BHH, BMM, BSS);					
 				LCD_DisplayStringLine(Line5,btime);	
-				LCD_DisplayStringLine(Line6,"                    ");	
+				LCD_DisplayStringLine(Line6,"   ~~               ");	
 				LCD_DisplayStringLine(Line7,"                    ");	
 				LCD_DisplayStringLine(Line8,"                    ");		
 				LCD_DisplayStringLine(Line9,"                    ");
@@ -163,13 +165,15 @@ void key_scan(void)
 					time_set = 0;
 					LCD_DisplayStringLine(Line2,"                    ");
 					LCD_DisplayStringLine(Line5,"                    ");
+					LCD_DisplayStringLine(Line2,adcstr);
+				    LCD_DisplayStringLine(Line4,adcstr);
 					if(led_sw == 0)
 					{
-						LCD_DisplayStringLine(Line6,"LED: OFF");	
+						LCD_DisplayStringLine(Line6,"LED: OFF             ");	
 					}	
 					else if(led_sw == 1)
 					{
-						LCD_DisplayStringLine(Line6,"LED: ON   ");	
+						LCD_DisplayStringLine(Line6,"LED: ON                ");	
 					}		
 			}		
 		}
@@ -180,7 +184,23 @@ void key_scan(void)
 		Delay_Ms(10);
 		if(RB3 == 0)
 		{
-			LCD_DisplayStringLine(Line9,"   3333    ");		
+			if(time_set == 1)
+			{
+				r3flag++;
+				if(r3flag>= 3)r3flag = 0;
+				if(r3flag == 0)
+				{
+					LCD_DisplayStringLine(Line6,"   ~~               ");	
+				}
+				else if(r3flag == 1)
+				{
+					LCD_DisplayStringLine(Line6,"        ~~           ");	
+				}
+				else if(r3flag == 2)
+				{
+					LCD_DisplayStringLine(Line6,"              ~~    ");	
+				}
+			}	
 		}
 		while(!RB3);
 	}
@@ -189,7 +209,31 @@ void key_scan(void)
 		Delay_Ms(10);
 		if(RB4 == 0)
 		{
-			LCD_DisplayStringLine(Line9,"   4444    ");		
+			if(time_set == 1)
+			{
+				if(r3flag == 0)
+				{
+
+					BHH++;
+					if(BHH >= 24)BHH = 0;
+					sprintf((char*)btime,"   %0.2d - %0.2d  - %0.2d  ",BHH, BMM, BSS);					
+				    LCD_DisplayStringLine(Line5,btime);	
+				}
+				else if(r3flag == 1)
+				{
+					BMM++;
+					if(BMM >= 60)BMM = 0;
+					sprintf((char*)btime,"   %0.2d - %0.2d  - %0.2d  ",BHH, BMM, BSS);					
+				    LCD_DisplayStringLine(Line5,btime);	
+				}
+				else if(r3flag == 2)
+				{
+					BSS++;
+					if(BSS >= 60)BSS = 0;
+					sprintf((char*)btime,"   %0.2d - %0.2d  - %0.2d  ",BHH, BMM, BSS);					
+				    LCD_DisplayStringLine(Line5,btime);	
+				}
+			}			
 		}
 		while(!RB4);
 	}
