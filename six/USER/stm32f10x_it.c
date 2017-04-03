@@ -32,8 +32,7 @@
   #define USARTz_IRQn              USART2_IRQn
   #define USARTz_IRQHandler        USART2_IRQHandler
 extern u32 TimingDelay;
-extern u32 adc_flag;
-u32 adc_time = 0;
+
 extern uint32_t TimeDisplay;
 u8 RX_time = 0;
 u8 time_flag = 0;
@@ -147,15 +146,8 @@ void PendSV_Handler(void)
   * @param  None
   * @retval None
   */
-void SysTick_Handler(void)
-{
-	TimingDelay--;
-	if(++adc_time == 1000)
-	{
-		adc_time = 0;
-		adc_flag = 1;
-	}
-}void USART2_IRQHandler(void)
+
+void USART2_IRQHandler(void)
 {
   u8 temp;
   u8 k_zhi;
@@ -219,8 +211,6 @@ void RTC_IRQHandler(void)
 
     /* Enable time update */
     TimeDisplay = 1;
-
-    /* Wait until last write operation on RTC registers has finished */
     RTC_WaitForLastTask();
     
   }

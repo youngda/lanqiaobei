@@ -17,4 +17,9 @@
   #define USARTz_TxPin             GPIO_Pin_2
   #define USARTz_IRQn              USART2_IRQn
   #define USARTz_IRQHandler        USART2_IRQHandler
+
+#define RB1 GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0)
+#define RB2 GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_8)
+#define RB3 GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_1)
+#define RB4 GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_2)
 #endif 

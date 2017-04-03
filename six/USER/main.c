@@ -1,10 +1,9 @@
-
 #include <stdio.h>
 #include "stm32f10x.h"
 #include "lcd.h"
 #include "led.h"
 #include "I2C.h"
-uint32_t HH = 23,MM = 59, SS = 50;
+uint32_t HH = 23,MM = 59, SS = 57;
 void LCD_Init(void);
 u32 TimingDelay = 0;
 uint32_t TimeDisplay = 0;
@@ -13,8 +12,10 @@ u32 adc_flag = 0;
 float adc_value;
 u8 adcstr[20];
 u8 k_v = 1;	
+u8 led_sw = 1;
+u32 adc_time = 0;
 extern u8 rx_over;
-
+uint8_t BHH = 0, BMM = 0, BSS = 0;
 void Delay_Ms(u32 nTime);
 void LED_Init(void);
 void LED_c(u16 lED,u8 status);
@@ -22,8 +23,15 @@ void RTC_Init(void);
 void Time_Display(uint32_t TimeVar);
 void ADC_Con(void);
 float R_ADC(void);
+u8 baojing = 0;
+u8 time_set = 0;
 void UASRT_Con(void);
-void USART_SendString(int8_t *str);
+void USART_SendString(u8 *str);
+void write_c(u8 add,u8 data);
+char read_c(u8 add);
+void NVIC_Configuration(void);
+void key_scan(void);
+void LED_shan(void);
 int main(void)
 {
 	SysTick_Config(SystemCoreClock/1000);
@@ -34,43 +42,187 @@ int main(void)
 
 	ADC_Con();
 	UASRT_Con();
-
+	NVIC_Configuration();
+    i2c_init();
+	k_v =  read_c(0x01);
+	Delay_Ms(2);
+	USART_SendString("ok\n");
+	LED_c(LEDALL,0);
 	while(1)
+	{	key_scan();
+	    LED_shan();
+		
+		if(time_set == 0)
+		{
+			if (TimeDisplay == 1)
+			{
+			  /* Display current time */
+			  Time_Display(RTC_GetCounter());
+			  TimeDisplay = 0;
+			}
+			if(adc_flag == 1)
+			{
+				adc_flag = 0;
+				adc_value = R_ADC();
+				sprintf((char*)adcstr,"V1:  %0.2f",adc_value);
+				LCD_DisplayStringLine(Line2,adcstr);
+				sprintf((char*)adcstr,"k :  0.%d",k_v);
+				LCD_DisplayStringLine(Line4,adcstr);
+				if(adc_value > 0.33 * k_v)
+				{
+					baojing = 1;
+				}
+				else{baojing = 0;}
+	
+			}
+			if(rx_over == 1)
+			{
+				rx_over = 0;
+	            sprintf((char*)adcstr,"k :  0.%d",k_v);
+				USART_SendString("ok\n");
+				write_c(0x01,k_v);
+		        Delay_Ms(2);
+				USART_ITConfig(USART2, USART_IT_RXNE,ENABLE);
+			}
+		}
+	}
+}
+void SysTick_Handler(void)
+{
+	TimingDelay--;
+	if(++adc_time == 1000)
 	{
-		if (TimeDisplay == 1)
+		adc_time = 0;
+		adc_flag = 1;
+	}
+}
+void LED_shan(void)
+{
+	LED_c(LEDALL,0);
+	if(baojing == 1)
+	{
+		if(led_sw == 1)
 		{
-		  /* Display current time */
-		  Time_Display(RTC_GetCounter());
-		  TimeDisplay = 0;
+			LED_c(LED1,0);
+			Delay_Ms(200);
+			LED_c(LED1,1);
+			Delay_Ms(200);
 		}
-		if(adc_flag == 1)
+		else 
 		{
-			adc_flag = 0;
-			adc_value = R_ADC();
-			sprintf((char*)adcstr,"V1:  %0.2f",adc_value);
-			LCD_DisplayStringLine(Line2,adcstr);
-			sprintf((char*)adcstr,"k :  0.%d",k_v);
-			LCD_DisplayStringLine(Line4,adcstr);
-			LCD_DisplayStringLine(Line6,"LED: OFF");
+			LED_c(LEDALL,0);	
 		}
-		if(rx_over == 1)
+	}
+}
+
+u8 btime[20];
+void key_scan(void)
+{
+	if(RB1 == 0)
+	{
+		Delay_Ms(10);
+		if(RB1 == 0)
 		{
-			rx_over = 0;
-            sprintf((char*)adcstr,"k :  0.%d",k_v);
-			USART_SendString("ok\n");
-			USART_ITConfig(USART2, USART_IT_RXNE,ENABLE);
+			if(led_sw == 1)
+			{
+				led_sw = 0;
+				LCD_DisplayStringLine(Line6,"LED: OFF");	
+			}	
+			else if(led_sw == 0)
+			{
+				led_sw = 1;
+				LCD_DisplayStringLine(Line2,adcstr);
+				LCD_DisplayStringLine(Line4,adcstr);
+				LCD_DisplayStringLine(Line6,"LED: ON   ");	
+			}
 		}
+		while(!RB1);
+	}
+	else if(RB2 == 0)
+	{
+		Delay_Ms(10);
+		if(RB2 == 0)
+		{
+			if(time_set == 0)
+			{
+				time_set = 1;
+				LCD_DisplayStringLine(Line0,"                    ");	
+				LCD_DisplayStringLine(Line1,"                    ");	
+				LCD_DisplayStringLine(Line2,"      Setting       ");
+				LCD_DisplayStringLine(Line3,"                    ");
+				LCD_DisplayStringLine(Line4,"                    ");
+				sprintf((char*)btime,"%0.2d - %0.2d  - %0.2d  ",BHH, BMM, BSS);					
+				LCD_DisplayStringLine(Line5,btime);	
+				LCD_DisplayStringLine(Line6,"                    ");	
+				LCD_DisplayStringLine(Line7,"                    ");	
+				LCD_DisplayStringLine(Line8,"                    ");		
+				LCD_DisplayStringLine(Line9,"                    ");
+			}
+			else if(time_set == 1)
+			{
+					time_set = 0;
+					LCD_DisplayStringLine(Line2,"                    ");
+					LCD_DisplayStringLine(Line5,"                    ");
+					if(led_sw == 0)
+					{
+						LCD_DisplayStringLine(Line6,"LED: OFF");	
+					}	
+					else if(led_sw == 1)
+					{
+						LCD_DisplayStringLine(Line6,"LED: ON   ");	
+					}		
+			}		
+		}
+		while(!RB2);
+	}
+	else if(RB3 == 0)
+	{
+		Delay_Ms(10);
+		if(RB3 == 0)
+		{
+			LCD_DisplayStringLine(Line9,"   3333    ");		
+		}
+		while(!RB3);
+	}
+	else if(RB4 == 0)
+	{
+		Delay_Ms(10);
+		if(RB4 == 0)
+		{
+			LCD_DisplayStringLine(Line9,"   4444    ");		
+		}
+		while(!RB4);
 	}
 }
 void write_c(u8 add,u8 data)
 {
-	I2CStart();	
+	I2CStart();
+	I2CSendByte(0xa0);
+	I2CWaitAck();
+	I2CSendByte(add);
+	I2CWaitAck();	
+				 
+	I2CSendByte(data);
+	I2CWaitAck();
+	I2CStop();	
 }
-void read_c(u8 add)
+char read_c(u8 add)
 {
-	
+	char data;
+	I2CStart();
+	I2CSendByte(0xa0);
+	I2CWaitAck();
+	I2CSendByte(add);
+
+	I2CStart();
+	I2CSendByte(0xa1);
+	I2CWaitAck();
+	data = I2CReceiveByte();
+	I2CWaitAck();
+	I2CStop();
+	return data;		
 }
-void USART_SendString(int8_t *str)
+void USART_SendString(u8 *str)
 {
     uint8_t index = 0;
     
@@ -85,19 +237,13 @@ void USART_SendString(int8_t *str)
 }
 void UASRT_Con(void)
 {
-  NVIC_InitTypeDef NVIC_InitStructure;
   USART_InitTypeDef USART_InitStructure;
   GPIO_InitTypeDef GPIO_InitStructure;
 
   RCC_APB2PeriphClockCmd(USARTz_GPIO_CLK, ENABLE);
   RCC_APB1PeriphClockCmd(USARTz_CLK, ENABLE); 
 
-  NVIC_InitStructure.NVIC_IRQChannel = USARTz_IRQn;
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&NVIC_InitStructure);
-   USART_InitStructure.USART_BaudRate = 9600;
+  USART_InitStructure.USART_BaudRate = 9600;
   USART_InitStructure.USART_WordLength = USART_WordLength_8b;
   USART_InitStructure.USART_StopBits = USART_StopBits_1;
   USART_InitStructure.USART_Parity = USART_Parity_No;
@@ -113,14 +259,15 @@ void UASRT_Con(void)
   USART_Cmd(USARTz, ENABLE);
 
    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
+GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+GPIO_Init(GPIOA, &GPIO_InitStructure);
 
     //ÅäÖÃUSART2 RXÒý½Å¹¤×÷Ä£Ê½
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
     GPIO_Init(GPIOA, &GPIO_InitStructure);
+
 }
 float R_ADC(void)
 {	float ADC_VALUE;
@@ -167,6 +314,7 @@ void ADC_Con(void)
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
   GPIO_Init(GPIOB, &GPIO_InitStructure);
 }
+u8 sendtime[20];
 void Time_Display(uint32_t TimeVar)
 {
   uint32_t THH = 0, TMM = 0, TSS = 0;
@@ -185,25 +333,24 @@ void Time_Display(uint32_t TimeVar)
   TMM = (TimeVar % 3600) / 60;
   /* Compute seconds */
   TSS = (TimeVar % 3600) % 60;
-
+	if(THH==BHH)
+	{
+		if(TMM==BMM)
+		{
+			if(TSS==BSS)
+			{
+			  sprintf((char*)sendtime,"%.2f+0.%0.1d+%0.2d%0.2d%0.2d\n",adc_value,k_v, THH, TMM, TSS);
+			  USART_SendString(sendtime);	
+		   }
+	}
+  }
   sprintf((char*)timestr,"Time: %0.2d:%0.2d:%0.2d", THH, TMM, TSS);
   LCD_DisplayStringLine(Line8,timestr);	
 }
 void RTC_Init(void)
 { 
-   NVIC_InitTypeDef NVIC_InitStructure;
-   RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR | RCC_APB1Periph_BKP, ENABLE);
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR | RCC_APB1Periph_BKP, ENABLE);
 
-
-  /* Configure one bit for preemption priority */
-  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
-
-  /* Enable the RTC Interrupt */
-  NVIC_InitStructure.NVIC_IRQChannel = RTC_IRQn;
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&NVIC_InitStructure);/* Allow access to BKP Domain */
   PWR_BackupAccessCmd(ENABLE);
 
   /* Reset Backup Domain */
@@ -243,6 +390,24 @@ void RTC_Init(void)
   RTC_WaitForLastTask();
 
 }
+void NVIC_Configuration(void)
+{
+  NVIC_InitTypeDef NVIC_InitStructure;
+
+  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
+
+  NVIC_InitStructure.NVIC_IRQChannel = RTC_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+	
+  NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);	
+}
 void LED_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStructure;
@@ -262,14 +427,14 @@ void LED_c(u16 LED,u8 status)
 {
 	if(status == 0)
 	{
-		GPIO_SetBits(GPIOC,LED);
-		GPIO_SetBits(GPIOD,GPIO_Pin_2);
-		GPIO_ResetBits(GPIOD,GPIO_Pin_2);
+        GPIO_SetBits(GPIOC,LED);
+        GPIO_SetBits(GPIOD,GPIO_Pin_2);
+        GPIO_ResetBits(GPIOD,GPIO_Pin_2);  //×´Ì¬Ëø´æ
 	}
 	else{
-		GPIO_ResetBits(GPIOC,LED);
-		GPIO_SetBits(GPIOD,GPIO_Pin_2);
-		GPIO_ResetBits(GPIOD,GPIO_Pin_2);
+        GPIO_ResetBits(GPIOC,LED);
+        GPIO_SetBits(GPIOD,GPIO_Pin_2);
+        GPIO_ResetBits(GPIOD,GPIO_Pin_2);  //×´Ì¬Ëø´æ    
 	}
 }
 void LCD_Init(void)
@@ -285,7 +450,7 @@ void LCD_Init(void)
 	LCD_DisplayStringLine(Line3,"                    ");
 	LCD_DisplayStringLine(Line4,"                    ");					
 	LCD_DisplayStringLine(Line5,"                    ");	
-	LCD_DisplayStringLine(Line6,"                    ");	
+	LCD_DisplayStringLine(Line6,"LED: ON");	
 	LCD_DisplayStringLine(Line7,"                    ");	
 	LCD_DisplayStringLine(Line8,"                    ");		
 	LCD_DisplayStringLine(Line9,"                    ");	
