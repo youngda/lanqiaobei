@@ -25,11 +25,20 @@
 #include "stm32f10x_it.h"
 extern u32 TimingDelay; 
 extern __IO uint32_t TimeDisplay;
-
+u8 rx_b[20];
+u8 RX_flag = 0;
+u8 index = 3;
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
   */
-
+  #define USARTz                   USART2
+  #define USARTz_GPIO              GPIOA
+  #define USARTz_CLK               RCC_APB1Periph_USART2
+  #define USARTz_GPIO_CLK          RCC_APB2Periph_GPIOA
+  #define USARTz_RxPin             GPIO_Pin_3
+  #define USARTz_TxPin             GPIO_Pin_2
+  #define USARTz_IRQn              USART2_IRQn
+  #define USARTz_IRQHandler        USART2_IRQHandler
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -148,31 +157,32 @@ void RTC_IRQHandler(void)
 
     /* Enable time update */
     TimeDisplay = 1;
-
-    /* Wait until last write operation on RTC registers has finished */
     RTC_WaitForLastTask();
     
   }
 }
-/******************************************************************************/
-/*                 STM32F10x Peripherals Interrupt Handlers                   */
-/*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */
-/*  available peripheral interrupt handler's name please refer to the startup */
-/*  file (startup_stm32f10x_xx.s).                                            */
-/******************************************************************************/
-
-/**
-  * @brief  This function handles PPP interrupt request.
-  * @param  None
-  * @retval None
-  */
-/*void PPP_IRQHandler(void)
+void USART2_IRQHandler(void)
 {
-}*/
+  u8 temp; 
+  if(USART_GetITStatus(USARTz, USART_IT_RXNE) != RESET)
+  {
+    temp = USART_ReceiveData(USARTz);
 
-/**
-  * @}
-  */ 
-
-
-
+    if(temp == 'S' || index == 20 || temp == 's' )
+    {
+		RX_flag  = 1;
+		rx_b[index] = temp;
+		index = 3;
+      /* Disable the USARTz Receive interrupt */
+      USART_ITConfig(USARTz, USART_IT_RXNE, DISABLE);
+    }
+	else
+	{
+		rx_b[0] = ' ';
+		rx_b[1] = ' ';
+		rx_b[2] = ' ';
+		rx_b[index] = temp;
+		++index;
+	}
+  }
+}

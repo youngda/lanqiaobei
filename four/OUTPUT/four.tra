@@ -13,17 +13,17 @@
 ### List of Objects: adding '"..\output\stm32f10x_gpio.o"'
 ### List of Objects: adding '"..\output\stm32f10x_rcc.o"'
 ### List of Objects: adding '"..\output\stm32f10x_tim.o"'
-### List of Objects: adding '"..\output\misc.o"'
-### List of Objects: adding '"..\output\stm32f10x_pwr.o"'
 ### List of Objects: adding '"..\output\stm32f10x_bkp.o"'
+### List of Objects: adding '"..\output\stm32f10x_pwr.o"'
+### List of Objects: adding '"..\output\misc.o"'
 ### ADS-LD Command completed:
---cpu Cortex-M3 "..\output\i2c.o" "..\output\lcd.o" "..\output\main.o" "..\output\stm32f10x_it.o" "..\output\system_stm32f10x.o" "..\output\core_cm3.o" "..\output\startup_stm32f10x_md.o" "..\output\stm32f10x_usart.o" "..\output\stm32f10x_rtc.o" "..\output\stm32f10x_gpio.o" "..\output\stm32f10x_rcc.o" "..\output\stm32f10x_tim.o" "..\output\misc.o" "..\output\stm32f10x_pwr.o" "..\output\stm32f10x_bkp.o" --ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--cpu Cortex-M3 "..\output\i2c.o" "..\output\lcd.o" "..\output\main.o" "..\output\stm32f10x_it.o" "..\output\system_stm32f10x.o" "..\output\core_cm3.o" "..\output\startup_stm32f10x_md.o" "..\output\stm32f10x_usart.o" "..\output\stm32f10x_rtc.o" "..\output\stm32f10x_gpio.o" "..\output\stm32f10x_rcc.o" "..\output\stm32f10x_tim.o" "..\output\stm32f10x_bkp.o" "..\output\stm32f10x_pwr.o" "..\output\misc.o" --ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 
  --list ".\four.map" -o "..\OUTPUT\four.axf"### Preparing Environment (PrepEnvAds)
 ### ADS-LD Output File: '..\OUTPUT\four.axf'
 ### ADS-LD Command File: '..\OUTPUT\four.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '..\OUTPUT\four.lnp', Handle=0x00000EF8
+### Creating CmdFile '..\OUTPUT\four.lnp', Handle=0x0000078C
 ### Writing '.lnp' file
 ### ADS-LD Command file '..\OUTPUT\four.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

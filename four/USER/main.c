@@ -6,10 +6,24 @@
 #define HH 23
 #define MM 59
 #define SS 55
+u32 BHH = 0,BMM = 0,BSS = 0;
+u8 r_flag = 0;
+u8 r_time = 0;
 u32 TimingDelay = 0;
 u32 PA1_v = 0;
 u32 PA2_v = 0;
 __IO uint32_t TimeDisplay = 0;
+  #define USARTz                   USART2
+  #define USARTz_GPIO              GPIOA
+  #define USARTz_CLK               RCC_APB1Periph_USART2
+  #define USARTz_GPIO_CLK          RCC_APB2Periph_GPIOA
+  #define USARTz_RxPin             GPIO_Pin_3
+  #define USARTz_TxPin             GPIO_Pin_2
+  #define USARTz_IRQn              USART2_IRQn
+  #define USARTz_IRQHandler        USART2_IRQHandler
+
+extern u8 rx_b[20];
+extern u8 RX_flag;
 
 void Delay_Ms(u32 nTime);
 void LCD_Init(void);
@@ -27,6 +41,7 @@ void USART_In(void);
 u8 pwm[20];
 int main(void)
 {
+	u8 i;
 	SysTick_Config(SystemCoreClock/1000);
 	LCD_Init();
 	LED_Init();
@@ -45,6 +60,7 @@ int main(void)
 	LCD_DisplayStringLine(Line2,pwm);
 	
 	RTC_Init();
+	USART_In();
     NVIC_Configuration();
 	while(1)
 	{
@@ -55,12 +71,32 @@ int main(void)
 	      Time_Display(RTC_GetCounter());
 	      TimeDisplay = 0;
 	    }
+		if(RX_flag == 1)
+		{
+			RX_flag = 0;
+			LCD_ClearLine(Line9);
+		 	LCD_DisplayStringLine(Line9,rx_b);
+			BHH = (rx_b[3]-48)*10+(rx_b[4]-48);
+			BMM = (rx_b[6]-48)*10+(rx_b[7]-48);
+			BSS = (rx_b[9]-48)*10+(rx_b[10]-48);
+			r_flag = rx_b[14]-48;
+			r_time = rx_b[16]-48;
+			for(i = 0;i<=20;i++)
+			{
+				rx_b[i] = 0;
+			}
+	        USART_ITConfig(USARTz, USART_IT_RXNE, ENABLE);
+		}
 	}
 }
-void RTC_Init(void)
+void USART_In(void)
 {
   USART_InitTypeDef USART_InitStructure;
+  GPIO_InitTypeDef GPIO_InitStructure;
   RCC_APB2PeriphClockCmd(USARTz_GPIO_CLK, ENABLE);
+  RCC_APB1PeriphClockCmd(USARTz_CLK, ENABLE); 
+  
+  
   USART_InitStructure.USART_BaudRate = 9600;
   USART_InitStructure.USART_WordLength = USART_WordLength_8b;
   USART_InitStructure.USART_StopBits = USART_StopBits_1;
@@ -68,13 +104,24 @@ void RTC_Init(void)
   USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
   USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
 
-
-  /* Configure USARTz */
   USART_Init(USARTz, &USART_InitStructure);
  /* Enable USARTz Receive and Transmit interrupts */
   USART_ITConfig(USARTz, USART_IT_RXNE, ENABLE);
   /* Enable the USARTz */
   USART_Cmd(USARTz, ENABLE);
+
+  GPIO_InitStructure.GPIO_Pin = USARTz_RxPin;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  GPIO_Init(USARTz_GPIO, &GPIO_InitStructure);
+  
+
+  
+  /* Configure USARTy Tx as alternate function push-pull */
+  GPIO_InitStructure.GPIO_Pin = USARTz_TxPin;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  GPIO_Init(USARTz_GPIO, &GPIO_InitStructure);
+
 }
 void NVIC_Configuration(void)
 {
@@ -86,6 +133,12 @@ void NVIC_Configuration(void)
   /* Enable the RTC Interrupt */
   NVIC_InitStructure.NVIC_IRQChannel = RTC_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+
+  NVIC_InitStructure.NVIC_IRQChannel = USARTz_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStructure);
@@ -109,11 +162,45 @@ void Time_Display(uint32_t TimeVar)
   TMM = (TimeVar % 3600) / 60;
   /* Compute seconds */
   TSS = (TimeVar % 3600) % 60;
+  if(THH == BHH)
+  {
+  	if(TMM == BMM)
+	{
+		if(TSS == BSS)
+		{
+			if(r_flag == 1)
+			{
+				PWM_Init(998*PA1_v/10,0);
+				sprintf((char*)pwm,"PWM-PA1: %d ",PA1_v*10);
+				LCD_DisplayStringLine(Line0,pwm);
+	            LCD_DisplayStringLine(Line6,"Channel: PA1        ");
+				LED_Con(LEDALL,0);
+				LED_Con(LED1,1);	
+			}
+			else if(r_flag == 2)
+			{
+				PWM_Init(998*PA2_v/10,0);
+				sprintf((char*)pwm,"PWM-PA2: %d ",PA1_v*10);
+				LCD_DisplayStringLine(Line2,pwm);
+	            LCD_DisplayStringLine(Line6,"Channel: PA2        ");
+				LED_Con(LEDALL,0);
+				LED_Con(LED2,1);	
+			}
+		}
+		else if(TSS == BSS + r_time)
+		{
+			PWM_Init(0,0);
+			LED_Con(LEDALL,0);	
+		    LCD_DisplayStringLine(Line6,"Channel: None       ");
+		}
+	}
+  }
 
   sprintf((char*)timec,"Time: %0.2d:%0.2d:%0.2d", THH, TMM, TSS);
   LCD_DisplayStringLine(Line4,timec);
 }
-void USART_In(void)
+
+void RTC_Init(void)
 {
 
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR | RCC_APB1Periph_BKP, ENABLE);
@@ -190,13 +277,17 @@ void key_scan(void)
 				sprintf((char*)pwm,"PWM-PA1: %d ",PA1_v*10);
 				LCD_DisplayStringLine(Line0,pwm);
 	            LCD_DisplayStringLine(Line6,"Channel: PA1        ");
+				LED_Con(LEDALL,0);
+				LED_Con(LED1,1);
 			}
 			else if(v1 == 1)
 			{
 				v1 = 0;
 				PWM_Init(0,0);
 	            LCD_DisplayStringLine(Line6,"Channel: None       ");
-			}	
+				LED_Con(LEDALL,0);
+			}
+		USART_In();	
 		}
 		while(!RB1);
 	}
@@ -205,6 +296,7 @@ void key_scan(void)
 		Delay_Ms(10);
 		if(RB2 == 0)
 		{
+
 			PA1_v++;
 			if(PA1_v >= 10)PA1_v = 0;
 			if(v1 == 1)
@@ -214,7 +306,8 @@ void key_scan(void)
 			W_V(0x01,PA1_v);
 			Delay_Ms(5);
 			sprintf((char*)pwm,"PWM-PA1: %d ",PA1_v*10);
-			LCD_DisplayStringLine(Line0,pwm);	
+			LCD_DisplayStringLine(Line0,pwm);
+			USART_In();	
 		}
 		while(!RB2);
 	} 
@@ -225,17 +318,27 @@ void key_scan(void)
 		{			
 			if(v2 == 0)
 			{
+				USART_Cmd(USART2, DISABLE);
+				USART_ITConfig(USART2, USART_IT_RXNE, DISABLE);		
+				RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, DISABLE);
 				v2 = 1;
 				PWM_Init(0,998*PA2_v/10);
 				sprintf((char*)pwm,"PWM-PA2: %d ",PA2_v*10);
 				LCD_DisplayStringLine(Line2,pwm);
 	            LCD_DisplayStringLine(Line6,"Channel: PA2        ");
+				LED_Con(LEDALL,0);
+				LED_Con(LED1,1);
 			}
 			else if(v2 == 1)
 			{
+                USART_Cmd(USARTz, ENABLE);
+			    USART_ITConfig(USARTz, USART_IT_RXNE, ENABLE);
+				RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
 				v2 = 0;
 				PWM_Init(0,0);
 	            LCD_DisplayStringLine(Line6,"Channel: None       ");
+				LED_Con(LEDALL,0);				
+				USART_In();	
 			}		
 		}
 		while(!RB3);
