@@ -77,7 +77,7 @@ void key_scan(void)
 		Delay_Ms(10);
 		if(RB2 == 0)
 		{
-			LCD_DisplayStringLine(Line5,"  2             ");		
+			LCD_DisplayStringLine(Line5,"  22222             ");		
 		}
 		while(!RB2);
 	}
