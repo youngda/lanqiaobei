@@ -19,7 +19,7 @@
 ### ADS-LD Output File: '..\OUTPUT\five.axf'
 ### ADS-LD Command File: '..\OUTPUT\five.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '..\OUTPUT\five.lnp', Handle=0x00000E78
+### Creating CmdFile '..\OUTPUT\five.lnp', Handle=0x00000AF0
 ### Writing '.lnp' file
 ### ADS-LD Command file '..\OUTPUT\five.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

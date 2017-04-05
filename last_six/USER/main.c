@@ -86,7 +86,7 @@ void key_scan(void)
 		Delay_Ms(10);
 		if(RB3 == 0)
 		{
-			LCD_DisplayStringLine(Line5,"  3333          ");		
+			LCD_DisplayStringLine(Line5,"  33333          ");		
 		}
 		while(!RB3);
 	}
