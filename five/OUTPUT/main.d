@@ -30,3 +30,4 @@
 ..\OUTPUT\main.o: ..\FWLIB\inc\stm32f10x_wwdg.h
 ..\OUTPUT\main.o: ..\FWLIB\inc\misc.h
 ..\OUTPUT\main.o: lcd.h
+..\OUTPUT\main.o: led.h
