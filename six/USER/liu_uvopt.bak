@@ -392,10 +392,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>49</ColumnNumber>
+      <ColumnNumber>25</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>45</TopLine>
-      <CurrentLine>56</CurrentLine>
+      <TopLine>475</TopLine>
+      <CurrentLine>494</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -438,7 +438,7 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\chrisyang\Desktop\嵌入式\liu\FWLIB\inc\stm32f10x_gpio.h</PathWithFilename>
+    <PathWithFilename>C:\Users\chrisyang\Desktop\lanqiaobei\six\FWLIB\inc\stm32f10x_gpio.h</PathWithFilename>
     <TopLine>347</TopLine>
     <CurrentLine>357</CurrentLine>
     <Constant>0</Constant>
@@ -464,7 +464,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\chrisyang\Desktop\嵌入式\liu\USER\led.h</PathWithFilename>
+    <PathWithFilename>C:\Users\chrisyang\Desktop\lanqiaobei\six\USER\led.h</PathWithFilename>
     <TopLine>1</TopLine>
     <CurrentLine>11</CurrentLine>
     <Constant>0</Constant>
@@ -490,7 +490,7 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>C:\Users\chrisyang\Desktop\嵌入式\liu\USER\stm32f10x.h</PathWithFilename>
+    <PathWithFilename>C:\Users\chrisyang\Desktop\lanqiaobei\six\USER\stm32f10x.h</PathWithFilename>
     <TopLine>28</TopLine>
     <CurrentLine>50</CurrentLine>
     <Constant>0</Constant>
@@ -1860,9 +1860,9 @@
       <Documents>
         <Doc>
           <Name>.\main.c</Name>
-          <ColumnNumber>49</ColumnNumber>
-          <TopLine>45</TopLine>
-          <CurrentLine>56</CurrentLine>
+          <ColumnNumber>25</ColumnNumber>
+          <TopLine>475</TopLine>
+          <CurrentLine>494</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\stm32f10x_it.c</Name>

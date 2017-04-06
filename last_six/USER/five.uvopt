@@ -277,7 +277,7 @@
     </File>
     <File>
       <GroupNumber>3</GroupNumber>
-      <FileNumber>0</FileNumber>
+      <FileNumber>5</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -291,7 +291,7 @@
     </File>
     <File>
       <GroupNumber>3</GroupNumber>
-      <FileNumber>0</FileNumber>
+      <FileNumber>6</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -312,7 +312,7 @@
     <cbSel>0</cbSel>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>5</FileNumber>
+      <FileNumber>7</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -326,9 +326,9 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>6</FileNumber>
+      <FileNumber>8</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -340,21 +340,21 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>7</FileNumber>
+      <FileNumber>9</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>39</ColumnNumber>
+      <ColumnNumber>27</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>74</TopLine>
-      <CurrentLine>89</CurrentLine>
+      <TopLine>151</TopLine>
+      <CurrentLine>151</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>8</FileNumber>
+      <FileNumber>10</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -368,7 +368,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>9</FileNumber>
+      <FileNumber>11</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
@@ -381,6 +381,84 @@
       <FilenameWithoutPath>system_stm32f10x.c</FilenameWithoutPath>
     </File>
   </Group>
+
+  <AlienFiles>
+    <PathWithFilename>C:\Users\chrisyang\Desktop\lanqiaobei\last_six\USER\i2c.h</PathWithFilename>
+    <TopLine>1</TopLine>
+    <CurrentLine>11</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>C:\Users\chrisyang\Desktop\lanqiaobei\last_six\USER\lcd.h</PathWithFilename>
+    <TopLine>146</TopLine>
+    <CurrentLine>167</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>C:\Users\chrisyang\Desktop\lanqiaobei\last_six\FWLIB\inc\stm32f10x_adc.h</PathWithFilename>
+    <TopLine>431</TopLine>
+    <CurrentLine>444</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
 
   <AlienFiles>
     <PathWithFilename>C:\Users\chrisyang\Desktop\lanqiaobei\last_six\FWLIB\inc\stm32f10x_rcc.h</PathWithFilename>
@@ -437,7 +515,7 @@
   <AlienFiles>
     <PathWithFilename>C:\Users\chrisyang\Desktop\lanqiaobei\last_six\USER\led.h</PathWithFilename>
     <TopLine>1</TopLine>
-    <CurrentLine>17</CurrentLine>
+    <CurrentLine>14</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -464,32 +542,6 @@
     <PathWithFilename>C:\Users\chrisyang\Desktop\lanqiaobei\last_six\USER\stm32f10x.h</PathWithFilename>
     <TopLine>37</TopLine>
     <CurrentLine>50</CurrentLine>
-    <Constant>0</Constant>
-    <WindowPosition>
-      <length>0</length>
-      <flags>0</flags>
-      <showCmd>0</showCmd>
-      <MinPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MinPosition>
-      <MaxPosition>
-        <xPos>0</xPos>
-        <yPos>0</yPos>
-      </MaxPosition>
-      <NormalPosition>
-        <Top>0</Top>
-        <Left>0</Left>
-        <Right>0</Right>
-        <Bottom>0</Bottom>
-      </NormalPosition>
-    </WindowPosition>
-  </AlienFiles>
-
-  <AlienFiles>
-    <PathWithFilename>C:\Users\chrisyang\Desktop\lanqiaobei\last_six\FWLIB\inc\stm32f10x_adc.h</PathWithFilename>
-    <TopLine>431</TopLine>
-    <CurrentLine>444</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1857,9 +1909,9 @@
       <Documents>
         <Doc>
           <Name>.\main.c</Name>
-          <ColumnNumber>39</ColumnNumber>
-          <TopLine>74</TopLine>
-          <CurrentLine>89</CurrentLine>
+          <ColumnNumber>27</ColumnNumber>
+          <TopLine>151</TopLine>
+          <CurrentLine>151</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\stm32f10x_it.c</Name>
@@ -1875,9 +1927,9 @@
         </Doc>
         <Doc>
           <Name>led.h</Name>
-          <ColumnNumber>39</ColumnNumber>
+          <ColumnNumber>0</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>17</CurrentLine>
+          <CurrentLine>14</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\FWLIB\inc\stm32f10x_gpio.h</Name>
@@ -1908,6 +1960,18 @@
           <ColumnNumber>31</ColumnNumber>
           <TopLine>431</TopLine>
           <CurrentLine>444</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>lcd.h</Name>
+          <ColumnNumber>5</ColumnNumber>
+          <TopLine>146</TopLine>
+          <CurrentLine>167</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>i2c.h</Name>
+          <ColumnNumber>14</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>11</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
