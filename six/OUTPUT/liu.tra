@@ -24,7 +24,7 @@
 ### ADS-LD Output File: '..\OUTPUT\liu.axf'
 ### ADS-LD Command File: '..\OUTPUT\liu.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '..\OUTPUT\liu.lnp', Handle=0x000007F0
+### Creating CmdFile '..\OUTPUT\liu.lnp', Handle=0x00000724
 ### Writing '.lnp' file
 ### ADS-LD Command file '..\OUTPUT\liu.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.
