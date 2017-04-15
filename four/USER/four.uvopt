@@ -224,10 +224,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>25</ColumnNumber>
+      <ColumnNumber>15</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>394</TopLine>
-      <CurrentLine>394</CurrentLine>
+      <TopLine>338</TopLine>
+      <CurrentLine>348</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -1846,9 +1846,9 @@
       <Documents>
         <Doc>
           <Name>.\main.c</Name>
-          <ColumnNumber>25</ColumnNumber>
-          <TopLine>394</TopLine>
-          <CurrentLine>394</CurrentLine>
+          <ColumnNumber>15</ColumnNumber>
+          <TopLine>338</TopLine>
+          <CurrentLine>348</CurrentLine>
         </Doc>
         <Doc>
           <Name>stm32f10x.h</Name>

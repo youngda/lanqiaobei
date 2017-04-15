@@ -23,7 +23,7 @@
 ### ADS-LD Output File: '..\OUTPUT\qi.axf'
 ### ADS-LD Command File: '..\OUTPUT\qi.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '..\OUTPUT\qi.lnp', Handle=0x000005B0
+### Creating CmdFile '..\OUTPUT\qi.lnp', Handle=0x000005E4
 ### Writing '.lnp' file
 ### ADS-LD Command file '..\OUTPUT\qi.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

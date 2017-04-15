@@ -31,4 +31,3 @@
 ..\OUTPUT\main.o: ..\FWLIB\inc\misc.h
 ..\OUTPUT\main.o: lcd.h
 ..\OUTPUT\main.o: led.h
-..\OUTPUT\main.o: i2c.h

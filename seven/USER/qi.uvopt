@@ -385,10 +385,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>8</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>1</CurrentLine>
+      <TopLine>156</TopLine>
+      <CurrentLine>156</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -401,8 +401,8 @@
       <Focus>0</Focus>
       <ColumnNumber>12</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>123</TopLine>
-      <CurrentLine>123</CurrentLine>
+      <TopLine>171</TopLine>
+      <CurrentLine>175</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\stm32f10x_it.c</PathWithFileName>
       <FilenameWithoutPath>stm32f10x_it.c</FilenameWithoutPath>
@@ -452,7 +452,7 @@
   <AlienFiles>
     <PathWithFilename>C:\Users\chrisyang\Desktop\lanqiaobei\seven\FWLIB\inc\stm32f10x_adc.h</PathWithFilename>
     <TopLine>421</TopLine>
-    <CurrentLine>421</CurrentLine>
+    <CurrentLine>444</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -530,7 +530,7 @@
   <AlienFiles>
     <PathWithFilename>C:\Users\chrisyang\Desktop\lanqiaobei\seven\USER\stm32f10x.h</PathWithFilename>
     <TopLine>25</TopLine>
-    <CurrentLine>25</CurrentLine>
+    <CurrentLine>50</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1894,25 +1894,25 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>0</ActiveTab>
+      <ActiveTab>2</ActiveTab>
       <Documents>
         <Doc>
           <Name>.\main.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
+          <ColumnNumber>8</ColumnNumber>
+          <TopLine>156</TopLine>
+          <CurrentLine>156</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\USER\stm32f10x.h</Name>
           <ColumnNumber>0</ColumnNumber>
           <TopLine>25</TopLine>
-          <CurrentLine>25</CurrentLine>
+          <CurrentLine>50</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\stm32f10x_it.c</Name>
           <ColumnNumber>12</ColumnNumber>
-          <TopLine>123</TopLine>
-          <CurrentLine>123</CurrentLine>
+          <TopLine>171</TopLine>
+          <CurrentLine>175</CurrentLine>
         </Doc>
         <Doc>
           <Name>led.h</Name>
@@ -1930,7 +1930,7 @@
           <Name>..\FWLIB\inc\stm32f10x_adc.h</Name>
           <ColumnNumber>9</ColumnNumber>
           <TopLine>421</TopLine>
-          <CurrentLine>421</CurrentLine>
+          <CurrentLine>444</CurrentLine>
         </Doc>
         <Doc>
           <Name>lcd.h</Name>

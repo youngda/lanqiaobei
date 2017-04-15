@@ -25,23 +25,11 @@
 #include "stm32f10x_it.h"
 
 extern u32 TimingDelay;
-u32 adc_time = 0;
-u8 adc_flag = 0;
-extern __IO uint32_t TimeDisplay;
-u8 rx_b[20];
-u8 rxover = 0;
 
 /** @addtogroup STM32F10x_StdPeriph_Examples
   * @{
   */
-  #define USARTz                   USART2
-  #define USARTz_GPIO              GPIOA
-  #define USARTz_CLK               RCC_APB1Periph_USART2
-  #define USARTz_GPIO_CLK          RCC_APB2Periph_GPIOA
-  #define USARTz_RxPin             GPIO_Pin_3
-  #define USARTz_TxPin             GPIO_Pin_2
-  #define USARTz_IRQn              USART2_IRQn
-  #define USARTz_IRQHandler        USART2_IRQHandler
+
 /** @addtogroup I2S_SPI_I2S_Switch
   * @{
   */ 
@@ -149,44 +137,6 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
 	TimingDelay--;
-	adc_time++;
-	if(adc_time == 500)
-	{
-		adc_time = 0;
-		adc_flag = 1;
-	}
-}
- void RTC_IRQHandler(void)
-{
-  if (RTC_GetITStatus(RTC_IT_SEC) != RESET)
-  {
-    /* Clear the RTC Second interrupt */
-    RTC_ClearITPendingBit(RTC_IT_SEC);
-
-
-    /* Enable time update */
-    TimeDisplay = 1;
-
-    /* Wait until last write operation on RTC registers has finished */
-    RTC_WaitForLastTask();
-    
-  }
-}
-void USARTz_IRQHandler(void)
-{
-  u8 temp;
-  if(USART_GetITStatus(USARTz, USART_IT_RXNE) != RESET)
-  {
-    /* Read one byte from the receive data register */
-    temp = USART_ReceiveData(USARTz);
-
-    if(temp == 'C'||temp == 'T')
-    {
-      rxover = 1;
-	  rx_b[0] = temp;
-      USART_ITConfig(USARTz, USART_IT_RXNE, DISABLE);
-    }
-  }
 }
 
 /******************************************************************************/

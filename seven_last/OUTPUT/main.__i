@@ -1,1 +1,0 @@
--c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork -I..\CORE -I..\FWLIB\inc -I..\USER -I "F:\Keil\ARM\INC" -I "F:\Keil\ARM\INC\ST\STM32F10x" -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -o "..\OUTPUT\main.o" --omf_browse "..\OUTPUT\main.crf" --depend "..\OUTPUT\main.d" "main.c"
